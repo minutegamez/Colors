@@ -1,14 +1,19 @@
 package com.minutegamez.screens.profile.stage.profile;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.minutegamez.guiassets.ProfileAssets;
+import com.minutegamez.guiassets.UIAssets;
 
 public class ProfileButton extends Button {
 
 	private Image image;
+	private Label label;
 
 	public ProfileButton() {
 		AtlasRegion up = ProfileAssets.btnProfile.get(0);
@@ -22,6 +27,13 @@ public class ProfileButton extends Button {
 		setScale(0f, 0f);
 
 		initImage();
+		initLabel("Jaime");
+	}
+
+	private void initLabel(String string) {
+		Skin skin = UIAssets.uiSkin;
+		label = new Label(string, skin, "default.fnt", Color.BLACK);
+		addActor(label);
 	}
 
 	private void initImage() {

@@ -22,8 +22,7 @@ public class Colors extends ApplicationAdapter {
 				Constants.GUI_HEIGHT));
 		skin = new Skin(Gdx.files.internal("data/uiskin.json"));
 
-		Label label = new Label("Eow", skin, "default-font", Color.BLACK);
-		label.scaleBy(100);
+		Label label = new Label("Eow", skin, "default.fnt", Color.BLACK);
 		stage.addActor(label);
 	}
 
