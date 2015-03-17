@@ -6,10 +6,15 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
-public class SplashAssets extends Assets implements AssetErrorListener {
+public class SplashAssets implements Assets, AssetErrorListener {
 
+	public static final SplashAssets instance = new SplashAssets();
 	private static final String TEXTURE_SPLASH = "images/splash/splash.atlas";
 	private static final String TEXTURE_SPLASH2 = "images/splash/menu.pack";
+
+	private SplashAssets() {
+
+	}
 
 	public static AtlasRegion libgdx_logo;
 	public static AtlasRegion ubuntu_logo;
@@ -18,20 +23,15 @@ public class SplashAssets extends Assets implements AssetErrorListener {
 	public static AtlasRegion colorsLabel;
 	public static AtlasRegion forKidsLabel;
 
-
-	public SplashAssets(AssetManager manager) {
-		super(manager);
-	}
-
 	@Override
-	public void load() {
+	public void load(AssetManager manager) {
 		manager.load(TEXTURE_SPLASH, TextureAtlas.class);
 		manager.load(TEXTURE_SPLASH2, TextureAtlas.class);
 		manager.finishLoading();
 	}
 
 	@Override
-	public void init() {
+	public void init(AssetManager manager) {
 		TextureAtlas atlas = manager.get(TEXTURE_SPLASH);
 		libgdx_logo = atlas.findRegion("images");
 		ubuntu_logo = atlas.findRegion("logo");
@@ -44,6 +44,16 @@ public class SplashAssets extends Assets implements AssetErrorListener {
 
 	@Override
 	public void error(AssetDescriptor asset, Throwable throwable) {
+
+	}
+
+	@Override
+	public void reload() {
+
+	}
+
+	@Override
+	public void dispose() {
 
 	}
 }

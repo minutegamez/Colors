@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.Renderer;
 import com.minutegamez.framework.SplashScreen;
-import com.minutegamez.guiassets.GUIAssets;
 import com.minutegamez.screens.splash.title.TitleSplash;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
@@ -17,21 +16,14 @@ public class UbuntuSplash extends SplashScreen {
 	private float stateTime = 0.0f;
 	private Renderer renderer;
 
-	private GUIAssets guiAssets;
 
 	public GameObject libgdxlogo;
 
 	public UbuntuSplash(DirectedGame game) {
 		super(game);
-		loadAssets();
 		libgdxlogo = new UbuntuLogo();
 		renderer = new ScreenRenderer(this);
 		state = State.PLAYING;
-	}
-
-	private void loadAssets() {
-		guiAssets = new GUIAssets();
-		guiAssets.load();
 	}
 
 	@Override

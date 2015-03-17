@@ -4,8 +4,7 @@ import aurelienribon.tweenengine.Tween;
 
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.ObjectAccessor;
-import com.minutegamez.guiassets.Assets;
-import com.minutegamez.guiassets.GUIAssets;
+import com.minutegamez.guiassets.GUIAssetsLoader;
 import com.minutegamez.screens.profile.ProfileScreen;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
@@ -14,7 +13,7 @@ import com.minutegamez.test.GameObject;
 public class MyGdxGame extends DirectedGame {
 	private static final String TAG = Class.class.getName();
 
-	private Assets guiAssets;
+	private GUIAssetsLoader guiAssets;
 
 	@Override
 	public void dispose() {
@@ -37,7 +36,7 @@ public class MyGdxGame extends DirectedGame {
 	}
 
 	private void initAssets() {
-		guiAssets = new GUIAssets();
+		guiAssets = new GUIAssetsLoader();
 		guiAssets.load();
 	}
 
