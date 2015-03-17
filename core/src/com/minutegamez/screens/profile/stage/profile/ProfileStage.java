@@ -9,6 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.minutegamez.screens.profile.stage.profile.model.Gender;
+import com.minutegamez.screens.profile.stage.profile.model.Profile;
 import com.minutegamez.utils.Constants;
 
 public class ProfileStage extends Stage {
@@ -80,7 +82,8 @@ public class ProfileStage extends Stage {
 		int profileCount = 6;
 		profileButton = new Array<ProfileButton>();
 		for (int j = 0; j < profileCount; j++) {
-			ProfileButton actor = new ProfileButton();
+			Profile profile = new Profile("Jaime", Gender.MALE);
+			ProfileButton actor = new ProfileButton(profile);
 			profileButton.add(actor);
 		}
 	}
