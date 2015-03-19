@@ -1,4 +1,4 @@
-package com.minutegamez.screens.profile.stage.profile.model;
+package com.minutegamez.screens.profile.mainstage.model;
 
 public class Profile {
 

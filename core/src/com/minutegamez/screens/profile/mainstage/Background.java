@@ -1,4 +1,4 @@
-package com.minutegamez.screens.profile.stage.profile;
+package com.minutegamez.screens.profile.mainstage;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;

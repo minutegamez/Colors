@@ -1,16 +1,21 @@
-package com.minutegamez.screens.profile.stage.profile;
+package com.minutegamez.screens.profile.mainstage;
 
 import static com.badlogic.gdx.math.Interpolation.bounceOut;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.scaleTo;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.minutegamez.screens.profile.stage.profile.model.Gender;
-import com.minutegamez.screens.profile.stage.profile.model.Profile;
+import com.minutegamez.screens.profile.mainstage.model.Gender;
+import com.minutegamez.screens.profile.mainstage.model.Profile;
+import com.minutegamez.screens.profile.mainstage.newuserpopup.NewUserStage;
 import com.minutegamez.utils.Constants;
 
 public class ProfileStage extends Stage {
@@ -18,16 +23,25 @@ public class ProfileStage extends Stage {
 	private static final float BUTTON_COUNT_X = 3;
 	private static final int MAX_VISIBLE_BUTTON = 6;
 
-	Actor background;
+	private Actor background;
 	private Array<ProfileButton> profileButton;
+
+	private NewUserStage newUserStage;
+	private ProfileButtonListener profileButtonListener;
 
 	public ProfileStage(StretchViewport stretchViewport, SpriteBatch batch) {
 		super(stretchViewport, batch);
 
+		profileButtonListener = new ProfileButtonListener();
+		initStages();
 		initActors();
 		addActors();
 		setPosition();
 
+	}
+
+	private void initStages() {
+		newUserStage = new NewUserStage();
 	}
 
 	private void addActors() {
@@ -36,6 +50,8 @@ public class ProfileStage extends Stage {
 		for (Actor actor : profileButton) {
 			addActor(actor);
 		}
+
+		addActor(newUserStage);
 	}
 
 	private void setPosition() {
@@ -70,7 +86,6 @@ public class ProfileStage extends Stage {
 	}
 
 	public void startAnimation() {
-
 		for (Actor actor : profileButton) {
 			actor.addAction(parallel(scaleTo(1, 1, .3f, bounceOut)));
 		}
@@ -83,8 +98,20 @@ public class ProfileStage extends Stage {
 		profileButton = new Array<ProfileButton>();
 		for (int j = 0; j < profileCount; j++) {
 			Profile profile = new Profile("Jaime", Gender.MALE);
-			ProfileButton actor = new ProfileButton(profile);
+			ProfileButton actor = new ProfileButton();
+			actor.addListener(profileButtonListener);
 			profileButton.add(actor);
 		}
 	}
+
+	class ProfileButtonListener extends ClickListener {
+
+		@Override
+		public void clicked(InputEvent event, float x, float y) {
+			super.clicked(event, x, y);
+			newUserStage.show();
+		}
+
+	}
+
 }

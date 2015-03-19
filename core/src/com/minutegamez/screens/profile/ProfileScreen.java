@@ -7,7 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.GUIScreen;
-import com.minutegamez.screens.profile.stage.profile.ProfileStage;
+import com.minutegamez.screens.profile.mainstage.ProfileStage;
+import com.minutegamez.screens.profile.mainstage.newuserpopup.NewUserStage;
 import com.minutegamez.utils.Constants;
 
 public class ProfileScreen extends GUIScreen {
