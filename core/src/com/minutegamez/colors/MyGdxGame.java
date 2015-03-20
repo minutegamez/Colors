@@ -5,7 +5,7 @@ import aurelienribon.tweenengine.Tween;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.ObjectAccessor;
 import com.minutegamez.guiassets.GUIAssetsLoader;
-import com.minutegamez.screens.profile.ProfileScreen;
+import com.minutegamez.screens.menu.MenuScreen;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
 import com.minutegamez.test.GameObject;
@@ -27,7 +27,7 @@ public class MyGdxGame extends DirectedGame {
 		initAssets();
 		registerTweenAccessor();
 		ScreenTransition screenTransition = new ScreenTransitionFade();
-		setScreen(new ProfileScreen(this), screenTransition);
+		setScreen(new MenuScreen(this), screenTransition);
 
 	}
 

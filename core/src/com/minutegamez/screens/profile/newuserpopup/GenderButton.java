@@ -1,11 +1,11 @@
-package com.minutegamez.screens.profile.mainstage.newuserpopup;
+package com.minutegamez.screens.profile.newuserpopup;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
-import com.minutegamez.screens.profile.mainstage.model.Gender;
+import com.minutegamez.screens.profile.Gender;
 
 public class GenderButton extends Button {
 	public GenderButton(Gender gender) {

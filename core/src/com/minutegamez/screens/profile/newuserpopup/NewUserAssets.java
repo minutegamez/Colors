@@ -1,4 +1,4 @@
-package com.minutegamez.screens.profile.mainstage.newuserpopup;
+package com.minutegamez.screens.profile.newuserpopup;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;

@@ -1,18 +1,17 @@
-package com.minutegamez.screens.profile.mainstage.newuserpopup;
+package com.minutegamez.screens.menu.statpopup;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.minutegamez.framework.PopupStage;
-import com.minutegamez.screens.profile.mainstage.model.Gender;
+import com.minutegamez.screens.profile.Gender;
 import com.minutegamez.utils.Constants;
 
-public class NewUserStage extends PopupStage {
+public class StatPopup extends PopupStage {
 
 	private Actor background;
-	private Actor genderButton;
 
-	public NewUserStage() {
+	public StatPopup() {
 		setSize(Constants.GUI_WIDTH, Constants.GUI_HEIGHT);
 		initActors();
 		addActors();
@@ -33,12 +32,10 @@ public class NewUserStage extends PopupStage {
 
 	private void initActors() {
 		background = new Background();
-		genderButton = new GenderButton(Gender.MALE);
 	}
 
 	private void addActors() {
 		addActor(background);
-		addActor(genderButton);
 	}
 
 	@Override

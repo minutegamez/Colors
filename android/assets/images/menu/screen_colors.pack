@@ -1,0 +1,82 @@
+
+screen_colors.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tile
+  rotate: false
+  xy: 1, 343
+  size: 231, 147
+  orig: 231, 147
+  offset: 0, 0
+  index: 1
+tile
+  rotate: false
+  xy: 1, 194
+  size: 231, 147
+  orig: 231, 147
+  offset: 0, 0
+  index: 2
+tile
+  rotate: false
+  xy: 234, 343
+  size: 231, 147
+  orig: 231, 147
+  offset: 0, 0
+  index: 3
+tile
+  rotate: false
+  xy: 1, 45
+  size: 231, 147
+  orig: 231, 147
+  offset: 0, 0
+  index: 4
+tile
+  rotate: false
+  xy: 234, 194
+  size: 231, 147
+  orig: 231, 147
+  offset: 0, 0
+  index: 5
+btnBack
+  rotate: false
+  xy: 234, 99
+  size: 100, 93
+  orig: 100, 93
+  offset: 0, 0
+  index: 1
+btnBack
+  rotate: false
+  xy: 336, 99
+  size: 100, 93
+  orig: 100, 93
+  offset: 0, 0
+  index: 2
+btnScore
+  rotate: false
+  xy: 234, 4
+  size: 100, 93
+  orig: 100, 93
+  offset: 0, 0
+  index: 1
+btnScore
+  rotate: false
+  xy: 336, 4
+  size: 100, 93
+  orig: 100, 93
+  offset: 0, 0
+  index: 2
+btnSound
+  rotate: false
+  xy: 1, 1
+  size: 51, 42
+  orig: 51, 42
+  offset: 0, 0
+  index: 1
+btnSound
+  rotate: false
+  xy: 54, 1
+  size: 51, 42
+  orig: 51, 42
+  offset: 0, 0
+  index: 2

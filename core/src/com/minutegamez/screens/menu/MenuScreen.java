@@ -1,32 +1,30 @@
-package com.minutegamez.screens.profile;
+package com.minutegamez.screens.menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.GUIScreen;
-import com.minutegamez.screens.profile.newuserpopup.NewUserStage;
 import com.minutegamez.utils.Constants;
 
-public class ProfileScreen extends GUIScreen {
+public class MenuScreen extends GUIScreen {
 
-	private ProfileStage profileStage;
+	private MenuStage profileStage;
 	private State state;
 
 	private enum State {
 		PAUSED, RESUMED
 	}
 
-	public ProfileScreen(DirectedGame game) {
+	public MenuScreen(DirectedGame game) {
 		super(game);
 		initStages();
 		setState(State.PAUSED);
 	}
 
 	private void initStages() {
-		profileStage = new ProfileStage(new StretchViewport(
+		profileStage = new MenuStage(new StretchViewport(
 				Constants.GUI_WIDTH, Constants.GUI_HEIGHT), batch);
 	}
 

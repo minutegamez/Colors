@@ -1,4 +1,4 @@
-package com.minutegamez.screens.profile.mainstage;
+package com.minutegamez.screens.profile;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -10,8 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.minutegamez.guiassets.ProfileAssets;
 import com.minutegamez.guiassets.UIAssets;
-import com.minutegamez.screens.profile.mainstage.model.Gender;
-import com.minutegamez.screens.profile.mainstage.model.Profile;
 
 public class ProfileButton extends Button {
 

@@ -5,7 +5,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
 import com.minutegamez.framework.PopupAssets;
-import com.minutegamez.screens.profile.mainstage.newuserpopup.NewUserAssets;
+import com.minutegamez.screens.menu.statpopup.StatAssets;
+import com.minutegamez.screens.profile.newuserpopup.NewUserAssets;
 
 public class ProfileAssets implements Assets {
 
@@ -32,6 +33,7 @@ public class ProfileAssets implements Assets {
 		imgMale = atlas.findRegion("boy");
 		imgFemale = atlas.findRegion("girl");
 		NewUserAssets.instance.init(atlas);
+		StatAssets.instance.init(atlas);
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class GUIAssetsLoader {
 		loadInitAsset(ProfileAssets.instance);
 		loadInitAsset(BackgroundAssets.instance);
 		loadInitAsset(UIAssets.instance);
+		loadInitAsset(MenuAssets.instance);
 	}
 
 	public void loadInitAsset(Assets asset) {
