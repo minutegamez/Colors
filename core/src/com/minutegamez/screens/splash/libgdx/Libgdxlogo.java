@@ -7,9 +7,9 @@ import com.minutegamez.utils.Constants;
 public class Libgdxlogo extends ImageGameObject {
 	public Libgdxlogo() {
 		setRegion(SplashAssets.libgdx_logo);
-		dimension.set(getRegion().getRegionWidth(), getRegion()
+		setDimension(getRegion().getRegionWidth(), getRegion()
 				.getRegionHeight());
-		setPosition(Constants.GUI_WIDTH / 2 - dimension.x / 2,
-				Constants.GUI_HEIGHT / 2 - dimension.y / 2);
+		setPosition(Constants.GUI_WIDTH / 2 - getWidth() / 2,
+				Constants.GUI_HEIGHT / 2 - getHeight() / 2);
 	}
 }

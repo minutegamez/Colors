@@ -2,8 +2,9 @@ package com.minutegamez.test;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.minutegamez.framework.AbstractGameObject;
 
-public class ImageGameObject extends GameObject {
+public class ImageGameObject extends AbstractGameObject {
 
 	public TextureRegion getRegion() {
 		return region;
@@ -16,7 +17,7 @@ public class ImageGameObject extends GameObject {
 	private TextureRegion region;
 
 	public ImageGameObject() {
-		
+
 	}
 
 	public void update(float deltaTime) {
@@ -25,12 +26,12 @@ public class ImageGameObject extends GameObject {
 
 	@Override
 	public void render(SpriteBatch batch) {
-		batch.setColor(color);
-		batch.draw(region.getTexture(), position.x, position.y,
-				origin.x, origin.y, dimension.x, dimension.y, scale.x, scale.y,
-				rotation, region.getRegionX(),
+		batch.setColor(getColor());
+		batch.draw(region.getTexture(), getX(), getY(),
+				getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(),
+				getRotation(), region.getRegionX(),
 				region.getRegionY(), region.getRegionWidth(),
-				region.getRegionHeight(), flipX, flipY);
+				region.getRegionHeight(), isFlipX(), isFlipY());
 		batch.setColor(1, 1, 1, 1);
 	}
 

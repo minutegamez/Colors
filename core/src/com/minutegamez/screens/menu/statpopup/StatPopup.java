@@ -15,7 +15,6 @@ public class StatPopup extends PopupStage {
 		setSize(Constants.GUI_WIDTH, Constants.GUI_HEIGHT);
 		initActors();
 		addActors();
-		setDebug(true);
 		setPositions();
 		hide();
 	}
@@ -46,6 +45,12 @@ public class StatPopup extends PopupStage {
 	@Override
 	public void hide() {
 		setVisible(false);
+	}
+
+	@Override
+	public int getState() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

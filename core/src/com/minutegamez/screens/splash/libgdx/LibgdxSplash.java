@@ -2,12 +2,12 @@ package com.minutegamez.screens.splash.libgdx;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.minutegamez.framework.AbstractGameObject;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.Renderer;
 import com.minutegamez.framework.SplashScreen;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
-import com.minutegamez.test.GameObject;
 
 public class LibgdxSplash extends SplashScreen {
 
@@ -15,7 +15,7 @@ public class LibgdxSplash extends SplashScreen {
 	private float stateTime = 0.0f;
 	private Renderer renderer;
 
-	public GameObject libgdxlogo;
+	public AbstractGameObject libgdxlogo;
 
 	public LibgdxSplash(DirectedGame game) {
 		super(game);

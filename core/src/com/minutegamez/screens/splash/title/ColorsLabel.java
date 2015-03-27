@@ -7,8 +7,8 @@ import com.minutegamez.utils.Constants;
 public class ColorsLabel extends ImageGameObject {
 	public ColorsLabel() {
 		setRegion(SplashAssets.colorsLabel);
-		dimension.set(getRegion().getRegionWidth(), getRegion()
+		setDimension(getRegion().getRegionWidth(), getRegion()
 				.getRegionHeight());
-		setPosition(Constants.GUI_WIDTH + dimension.x, 300);
+		setPosition(Constants.GUI_WIDTH + getWidth(), 300);
 	}
 }

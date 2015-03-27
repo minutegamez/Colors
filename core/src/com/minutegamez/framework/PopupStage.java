@@ -11,4 +11,6 @@ public abstract class PopupStage extends Group {
 
 	public abstract void hide();
 
+	public abstract int getState();
+
 }

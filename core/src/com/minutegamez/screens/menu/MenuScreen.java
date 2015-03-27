@@ -83,4 +83,9 @@ public class MenuScreen extends GUIScreen {
 	public void setState(State state) {
 		this.state = state;
 	}
+
+	@Override
+	public void setInputProcessor() {
+
+	}
 }

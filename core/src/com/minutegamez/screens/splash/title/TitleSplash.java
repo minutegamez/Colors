@@ -11,6 +11,7 @@ import aurelienribon.tweenengine.equations.Elastic;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Interpolation;
+import com.minutegamez.framework.AbstractGameObject;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.ObjectAccessor;
 import com.minutegamez.framework.Renderer;
@@ -18,15 +19,14 @@ import com.minutegamez.framework.SplashScreen;
 import com.minutegamez.screens.profile.ProfileScreen;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionSlide;
-import com.minutegamez.test.GameObject;
 
 public class TitleSplash extends SplashScreen {
 
 	private Renderer renderer;
 
-	public GameObject background;
-	public GameObject colorsLabel;
-	public GameObject forKidsLabel;
+	public AbstractGameObject background;
+	public AbstractGameObject colorsLabel;
+	public AbstractGameObject forKidsLabel;
 	private TweenManager tweenManager;
 
 	public TitleSplash(DirectedGame game) {

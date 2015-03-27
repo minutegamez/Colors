@@ -2,13 +2,13 @@ package com.minutegamez.screens.splash.ubuntu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.minutegamez.framework.AbstractGameObject;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.Renderer;
 import com.minutegamez.framework.SplashScreen;
 import com.minutegamez.screens.splash.title.TitleSplash;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
-import com.minutegamez.test.GameObject;
 
 public class UbuntuSplash extends SplashScreen {
 
@@ -17,7 +17,7 @@ public class UbuntuSplash extends SplashScreen {
 	private Renderer renderer;
 
 
-	public GameObject libgdxlogo;
+	public AbstractGameObject libgdxlogo;
 
 	public UbuntuSplash(DirectedGame game) {
 		super(game);

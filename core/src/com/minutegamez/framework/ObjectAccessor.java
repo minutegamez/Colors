@@ -1,89 +1,87 @@
 package com.minutegamez.framework;
 
-
 import aurelienribon.tweenengine.TweenAccessor;
 
 import com.badlogic.gdx.graphics.Color;
-import com.minutegamez.test.GameObject;
 
-public class ObjectAccessor implements TweenAccessor<GameObject> {
-	public static final int CPOS_XY = 4;
-	public static final int OPACITY = 7;
+public class ObjectAccessor implements TweenAccessor<AbstractGameObject> {
 	public static final int POS_X = 1;
-	public static final int POS_XY = 3;
 	public static final int POS_Y = 2;
-	public static final int ROTATION = 6;
+	public static final int POS_XY = 3;
+	public static final int CPOS_XY = 4;
 	public static final int SCALE_XY = 5;
+	public static final int ROTATION = 6;
+	public static final int OPACITY = 7;
 	public static final int TINT = 8;
 
 	@Override
-	public int getValues(GameObject object, int type, float[] values) {
+	public int getValues(AbstractGameObject object, int type, float[] values) {
 		switch (type) {
 		default:
-		case 1:
-			values[0] = object.position.x;
+		case POS_X:
+			values[0] = object.getX();
 			return 1;
-		case 2:
-			values[0] = object.position.y;
+		case POS_Y:
+			values[0] = object.getY();
 			return 1;
-		case 3:
-			values[0] = object.position.x;
-			values[1] = object.position.y;
+		case POS_XY:
+			values[0] = object.getX();
+			values[1] = object.getY();
 			return 2;
-		case 4:
-			values[0] = object.position.x + object.dimension.x / 2.0f;
-			values[1] = object.position.y + object.dimension.y / 2.0f;
+		case CPOS_XY:
+			values[0] = object.getX() + object.getWidth() / 2.0f;
+			values[1] = object.getY() + object.getHeight() / 2.0f;
 			return 2;
-		case 5:
-			values[0] = object.scale.x;
-			values[1] = object.scale.y;
+		case SCALE_XY:
+			values[0] = object.getScaleX();
+			values[1] = object.getScaleY();
 			return 2;
-		case 6:
-			values[0] = object.rotation;
+		case ROTATION:
+			values[0] = object.getRotation();
 			return 1;
-		case 7:
-			values[0] = object.color.a;
+		case OPACITY:
+			values[0] = object.getColor().a;
 			return 1;
-		case 8:
-			values[0] = object.color.r;
-			values[1] = object.color.g;
-			values[2] = object.color.b;
+		case TINT:
+			values[0] = object.getColor().r;
+			values[1] = object.getColor().g;
+			values[2] = object.getColor().b;
 			return 3;
 		}
 	}
 
 	@Override
-	public void setValues(GameObject object, int type, float[] values) {
+	public void setValues(AbstractGameObject object, int type, float[] values) {
 		switch (type) {
 		default:
-		case 1:
-			object.position.x = values[0];
+		case POS_X:
+			object.setX(values[0]);
 			return;
-		case 2:
-			object.position.y = values[0];
+		case POS_Y:
+			object.setY(values[0]);
 			return;
-		case 3:
-			object.position.set(values[0], values[1]);
+		case POS_XY:
+			object.setPosition(values[0], values[1]);
 			return;
-		case 4:
-			object.position.x = values[0] - object.dimension.x / 2.0f;
-			object.position.y = values[1] - object.dimension.y / 2.0f;
+		case CPOS_XY:
+			object.setX(values[0] - object.getWidth() / 2.0f);
+			object.setY(values[1] - object.getHeight() / 2.0f);
 			return;
-		case 5:
-			object.scale.set(values[0], values[1]);
+		case SCALE_XY:
+			object.setScale(values[0], values[1]);
 			return;
-		case 6:
-			object.rotation = values[0];
+		case ROTATION:
+			object.setRotation(values[0]);
 			return;
-		case 7:
-			Color color = object.color;
+		case OPACITY:
+			Color color = object.getColor();
 			color.set(color.r, color.g, color.b, values[0]);
-			object.color = color;
+			object.setColor(color);
 			return;
-		case 8:
-			color = object.color;
+		case TINT:
+			color = object.getColor();
 			color.set(values[0], values[1], values[2], color.a);
-			object.color = color;
+			object.setColor(color);
 		}
 	}
 }

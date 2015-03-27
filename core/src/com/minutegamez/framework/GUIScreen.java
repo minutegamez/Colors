@@ -4,18 +4,16 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public abstract class GUIScreen implements Screen {
+public abstract class GUIScreen extends AbstractScreen {
 
 	protected State state;
-	protected DirectedGame game;
-	protected SpriteBatch batch;
 
 	protected enum State {
 		PAUSED, RESUMED,
 	}
 
 	public GUIScreen(DirectedGame game) {
-		this.game = game;
+		super(game);
 		batch = new SpriteBatch();
 	}
 
@@ -37,9 +35,9 @@ public abstract class GUIScreen implements Screen {
 	public abstract void dispose();
 
 	public abstract void draw();
-	
+
 	public abstract void update(float delta);
-	
+
 	public abstract InputProcessor getInputProcessor();
 
 }

@@ -3,11 +3,9 @@ package com.minutegamez.screens.profile;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.GUIScreen;
-import com.minutegamez.screens.profile.newuserpopup.NewUserStage;
 import com.minutegamez.utils.Constants;
 
 public class ProfileScreen extends GUIScreen {
@@ -84,5 +82,11 @@ public class ProfileScreen extends GUIScreen {
 
 	public void setState(State state) {
 		this.state = state;
+	}
+
+	@Override
+	public void setInputProcessor() {
+		// TODO Auto-generated method stub
+
 	}
 }

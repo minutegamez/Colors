@@ -2,13 +2,13 @@ package com.minutegamez.colors;
 
 import aurelienribon.tweenengine.Tween;
 
+import com.minutegamez.framework.AbstractGameObject;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.ObjectAccessor;
+import com.minutegamez.game.color.fishing.GameScreen;
 import com.minutegamez.guiassets.GUIAssetsLoader;
-import com.minutegamez.screens.menu.MenuScreen;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
-import com.minutegamez.test.GameObject;
 
 public class MyGdxGame extends DirectedGame {
 	private static final String TAG = Class.class.getName();
@@ -27,12 +27,12 @@ public class MyGdxGame extends DirectedGame {
 		initAssets();
 		registerTweenAccessor();
 		ScreenTransition screenTransition = new ScreenTransitionFade();
-		setScreen(new MenuScreen(this), screenTransition);
+		setScreen(new GameScreen(this), screenTransition);
 
 	}
 
 	private void registerTweenAccessor() {
-		Tween.registerAccessor(GameObject.class, new ObjectAccessor());
+		Tween.registerAccessor(AbstractGameObject.class, new ObjectAccessor());
 	}
 
 	private void initAssets() {

@@ -7,11 +7,11 @@ import com.minutegamez.utils.Constants;
 public class ForKidsLabel extends ImageGameObject {
 	public ForKidsLabel() {
 		setRegion(SplashAssets.forKidsLabel);
-		dimension.set(getRegion().getRegionWidth(), getRegion()
+		setDimension(getRegion().getRegionWidth(), getRegion()
 				.getRegionHeight());
 		setPosition(Constants.GUI_WIDTH / 2, Constants.GUI_HEIGHT / 2);
-		origin.set(dimension.x / 2, dimension.y / 2);
-		scale.set(1.5f, 1.5f);
-		color.a = 0;
+		setOrigin(getWidth()/ 2, getHeight() / 2);
+		setScale(1.5f, 1.5f);
+		getColor().a = 0;
 	}
 }
