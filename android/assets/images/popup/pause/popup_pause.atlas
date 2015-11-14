@@ -1,0 +1,55 @@
+
+popup_pause.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 2
+  size: 338, 245
+  orig: 338, 245
+  offset: 0, 0
+  index: -1
+btn-help-down
+  rotate: false
+  xy: 544, 186
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-help-up
+  rotate: false
+  xy: 342, 62
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-quit-down
+  rotate: false
+  xy: 740, 186
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-quit-up
+  rotate: false
+  xy: 544, 123
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-resume-down
+  rotate: false
+  xy: 342, 187
+  size: 200, 60
+  orig: 200, 60
+  offset: 0, 0
+  index: -1
+btn-resume-up
+  rotate: false
+  xy: 342, 125
+  size: 200, 60
+  orig: 200, 60
+  offset: 0, 0
+  index: -1

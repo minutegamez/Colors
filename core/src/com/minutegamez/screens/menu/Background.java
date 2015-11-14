@@ -10,7 +10,7 @@ public class Background extends Actor {
 	private TextureRegion region;
 
 	public Background() {
-		region = BackgroundAssets.grass_background;
+		region = BackgroundAssets.instance.grass_background;
 		setBounds(0, 0, Constants.GUI_WIDTH, Constants.GUI_HEIGHT);
 	}
 

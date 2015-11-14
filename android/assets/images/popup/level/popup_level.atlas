@@ -1,0 +1,104 @@
+
+popup_level.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 28
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+button-down
+  rotate: false
+  xy: 804, 418
+  size: 96, 90
+  orig: 96, 90
+  offset: 0, 0
+  index: -1
+button-up
+  rotate: false
+  xy: 804, 326
+  size: 96, 90
+  orig: 96, 90
+  offset: 0, 0
+  index: -1
+lock
+  rotate: false
+  xy: 891, 220
+  size: 53, 60
+  orig: 53, 60
+  offset: 0, 0
+  index: -1
+num-1
+  rotate: false
+  xy: 902, 453
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-2
+  rotate: false
+  xy: 804, 269
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-3
+  rotate: false
+  xy: 902, 396
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-4
+  rotate: false
+  xy: 804, 212
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-5
+  rotate: false
+  xy: 902, 339
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-6
+  rotate: false
+  xy: 804, 155
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-7
+  rotate: false
+  xy: 804, 98
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-8
+  rotate: false
+  xy: 804, 41
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+num-9
+  rotate: false
+  xy: 902, 282
+  size: 85, 55
+  orig: 85, 55
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 2, 2
+  size: 26, 24
+  orig: 26, 24
+  offset: 0, 0
+  index: -1

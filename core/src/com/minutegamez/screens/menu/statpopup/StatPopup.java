@@ -1,18 +1,17 @@
 package com.minutegamez.screens.menu.statpopup;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
+import aurelienribon.tweenengine.TweenManager;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.minutegamez.framework.PopupStage;
-import com.minutegamez.screens.profile.Gender;
-import com.minutegamez.utils.Constants;
 
 public class StatPopup extends PopupStage {
 
 	private Actor background;
 
-	public StatPopup() {
-		setSize(Constants.GUI_WIDTH, Constants.GUI_HEIGHT);
+	public StatPopup(SpriteBatch batch, TweenManager manager) {
+		super(batch, manager);
 		initActors();
 		addActors();
 		setPositions();
@@ -22,11 +21,6 @@ public class StatPopup extends PopupStage {
 	private void setPositions() {
 		background.setPosition(getWidth() / 2 - background.getWidth() / 2,
 				getHeight() / 2 - background.getHeight() / 2);
-	}
-
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
 	}
 
 	private void initActors() {
@@ -39,18 +33,24 @@ public class StatPopup extends PopupStage {
 
 	@Override
 	public void show() {
-		setVisible(true);
+//		setVisible(true);
 	}
 
 	@Override
 	public void hide() {
-		setVisible(false);
+//		setVisible(false);
 	}
 
 	@Override
-	public int getState() {
+	public void showEntranceAnimation() {
 		// TODO Auto-generated method stub
-		return 0;
+		
+	}
+
+	@Override
+	public void showExitAnimation() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

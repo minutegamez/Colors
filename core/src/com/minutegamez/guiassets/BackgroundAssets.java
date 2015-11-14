@@ -4,12 +4,12 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
-public class BackgroundAssets implements Assets {
+public class BackgroundAssets implements Asset {
 
-	private static final String GRASS_BACKGROUND = "images/background/grass_background.pack";
+	private static final String GRASS_BACKGROUND = "images/background/fishing_background.atlas";
 
 	public static final BackgroundAssets instance = new BackgroundAssets();
-	public static AtlasRegion grass_background;
+	public  AtlasRegion grass_background;
 
 	@Override
 	public void load(AssetManager manager) {

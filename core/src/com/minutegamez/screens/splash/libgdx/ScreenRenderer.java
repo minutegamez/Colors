@@ -14,7 +14,7 @@ public class ScreenRenderer implements Renderer {
 	@Override
 	public void render(SpriteBatch batch) {
 		batch.begin();
-		screen.libgdxlogo.render(batch);
+		screen.libgdxlogo.draw(batch, 1f);
 		batch.end();
 	}
 

@@ -1,0 +1,11 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+		profile: { down: btn-profile-down, up: btn-profile-up }
+		back: { down: btn-back-down, up: btn-back-up }
+		delete: { down: btn-delete-down, up: btn-delete-up }
+		confirm-yes: { down: btn-confirm-yes-down, up: btn-confirm-yes-up }
+		confirm-no: { down: btn-confirm-no-up, up: btn-confirm-no-down }
+		save: { down: btn-save-up, up: btn-save-down }
+		cancel: { down: btn-cancel-down, up: btn-cancel-up }
+	}
+}

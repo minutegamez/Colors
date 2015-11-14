@@ -2,8 +2,8 @@ package com.minutegamez.screens.splash.ubuntu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.minutegamez.framework.AbstractGameObject;
 import com.minutegamez.framework.DirectedGame;
+import com.minutegamez.framework.ImageGameObject;
 import com.minutegamez.framework.Renderer;
 import com.minutegamez.framework.SplashScreen;
 import com.minutegamez.screens.splash.title.TitleSplash;
@@ -17,7 +17,7 @@ public class UbuntuSplash extends SplashScreen {
 	private Renderer renderer;
 
 
-	public AbstractGameObject libgdxlogo;
+	public ImageGameObject libgdxlogo;
 
 	public UbuntuSplash(DirectedGame game) {
 		super(game);
@@ -35,7 +35,7 @@ public class UbuntuSplash extends SplashScreen {
 		renderer.render(batch);
 	}
 
-	private void update(float delta) {
+	public void update(float delta) {
 		switch (state) {
 		case PAUSED:
 			break;
@@ -56,5 +56,12 @@ public class UbuntuSplash extends SplashScreen {
 	public void dispose() {
 		super.dispose();
 	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

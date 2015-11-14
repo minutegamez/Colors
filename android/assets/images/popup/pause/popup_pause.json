@@ -1,0 +1,7 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+		help: { down: btn-help-down, up: btn-help-up }
+		quit: { down: btn-quit-down, up: btn-quit-up }
+		resume: { down: btn-resume-down, up: btn-resume-up }
+	}
+}

@@ -14,9 +14,9 @@ public class ScreenRenderer implements Renderer {
 	@Override
 	public void render(SpriteBatch batch) {
 		batch.begin();
-		screen.background.render(batch);
-		screen.colorsLabel.render(batch);
-		screen.forKidsLabel.render(batch);
+		screen.background.draw(batch, 1f);
+		screen.colorsLabel.draw(batch, 1f);
+		screen.forKidsLabel.draw(batch, 1f);
 		batch.end();
 	}
 

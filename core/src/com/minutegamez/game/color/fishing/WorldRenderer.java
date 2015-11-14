@@ -8,16 +8,18 @@ public class WorldRenderer extends AbstractWorldRenderer{
 
 	AbstractWorldController controller;
 
-	public WorldRenderer(AbstractWorldController controller){
+	public WorldRenderer(SpriteBatch batch, AbstractWorldController controller){
+		super(batch);
 		this.controller = controller;
 	}
 
 	@Override
-	public void render(SpriteBatch batch) {
+	public void render() {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		controller.getObjectGroup().render(batch);
+		controller.getObjectGroup().draw(batch, 1f);
 		batch.end();
+//		System.out.println("drawing");
 	}
 
 }

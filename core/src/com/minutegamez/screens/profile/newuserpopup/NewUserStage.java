@@ -1,22 +1,22 @@
 package com.minutegamez.screens.profile.newuserpopup;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
+import aurelienribon.tweenengine.TweenManager;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.minutegamez.framework.PopupStage;
 import com.minutegamez.screens.profile.Gender;
-import com.minutegamez.utils.Constants;
 
 public class NewUserStage extends PopupStage {
 
 	private Actor background;
 	private Actor genderButton;
 
-	public NewUserStage() {
-		setSize(Constants.GUI_WIDTH, Constants.GUI_HEIGHT);
+	public NewUserStage(SpriteBatch batch, TweenManager manager) {
+		super(batch, manager);
 		initActors();
 		addActors();
-		setDebug(true);
+		setDebugAll(true);
 		setPositions();
 		hide();
 	}
@@ -26,10 +26,6 @@ public class NewUserStage extends PopupStage {
 				getHeight() / 2 - background.getHeight() / 2);
 	}
 
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
-	}
 
 	private void initActors() {
 		background = new Background();
@@ -43,18 +39,24 @@ public class NewUserStage extends PopupStage {
 
 	@Override
 	public void show() {
-		setVisible(true);
+//		setVisible(true);
 	}
 
 	@Override
 	public void hide() {
-		setVisible(false);
+//		setVisible(false);
 	}
 
 	@Override
-	public int getState() {
+	public void showEntranceAnimation() {
 		// TODO Auto-generated method stub
-		return 0;
+		
+	}
+
+	@Override
+	public void showExitAnimation() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

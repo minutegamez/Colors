@@ -3,7 +3,7 @@ package com.minutegamez.guiassets;
 import com.badlogic.gdx.assets.AssetManager;
 
 
-public interface Assets {
+public interface Asset {
 
 	public abstract void load(AssetManager manager);
 

@@ -1,20 +1,17 @@
 package com.minutegamez.framework;
 
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Disposable;
 import com.minutegamez.utils.Constants;
 
-public abstract class SplashScreen implements Disposable, Screen {
+public abstract class SplashScreen extends AbstractScreen implements Disposable {
 
 	protected State state;
-	protected DirectedGame game;
-	protected SpriteBatch batch;
 	protected OrthographicCamera camera;
 
 	public SplashScreen(DirectedGame game) {
-		this.game = game;
+		super(game);
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera(Constants.GUI_WIDTH,
 				Constants.GUI_HEIGHT);

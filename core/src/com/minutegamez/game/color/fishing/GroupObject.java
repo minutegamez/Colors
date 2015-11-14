@@ -1,25 +1,32 @@
 package com.minutegamez.game.color.fishing;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.utils.Array;
-import com.minutegamez.framework.AbstractGameObject;
+import com.minutegamez.framework.ImageGameObject;
 
-public class GroupObject extends AbstractGameObject {
+public class GroupObject extends ImageGameObject {
 
-	private Array<AbstractGameObject> objects;
+	private Array<ImageGameObject> objects;
 
 	public GroupObject() {
-		objects = new Array<AbstractGameObject>();
+		objects = new Array<ImageGameObject>();
 	}
 
-	public void add(AbstractGameObject object) {
+	public void add(ImageGameObject object) {
 		objects.add(object);
 	}
 
 	@Override
-	public void render(SpriteBatch batch){
-		for(AbstractGameObject object : objects){
-			object.render(batch);
+	public void draw(Batch batch, float parentAlpha){
+		for(ImageGameObject object : objects){
+			object.draw(batch, 1f);
+		}
+	}
+	
+	@Override
+	public void update(float delta){
+		for(ImageGameObject object : objects){
+			object.update(delta);
 		}
 	}
 }

@@ -7,8 +7,10 @@ import com.minutegamez.utils.Constants;
 public abstract class AbstractWorldRenderer {
 
 	protected OrthographicCamera camera;
+	protected SpriteBatch batch;
 
-	public AbstractWorldRenderer() {
+	public AbstractWorldRenderer(SpriteBatch batch) {
+		this.batch = batch;
 		camera = new OrthographicCamera(Constants.VIEWPORT_WIDTH,
 				Constants.VIEWPORT_HEIGHT);
 		camera.position.set(Constants.VIEWPORT_WIDTH / 2,
@@ -22,5 +24,5 @@ public abstract class AbstractWorldRenderer {
 		camera.update();
 	}
 
-	public abstract void render(SpriteBatch batch);
+	public abstract void render();
 }

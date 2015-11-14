@@ -37,7 +37,7 @@ public class MenuStage extends Stage {
 	}
 
 	private void initPopups() {
-		popupStat = new StatPopup();
+//		popupStat = new StatPopup(batc);
 	}
 
 	private void addActors() {
@@ -48,7 +48,7 @@ public class MenuStage extends Stage {
 			addActor(actor);
 		}
 
-		addActor(popupStat);
+//		addActor(popupStat);
 	}
 
 	private void setPosition() {

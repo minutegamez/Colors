@@ -1,0 +1,97 @@
+
+new_profile.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 2
+  size: 338, 245
+  orig: 338, 245
+  offset: 0, 0
+  index: -1
+btn-cancel-down
+  rotate: false
+  xy: 342, 139
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-cancel-up
+  rotate: false
+  xy: 342, 76
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-female-down
+  rotate: false
+  xy: 538, 118
+  size: 88, 82
+  orig: 88, 82
+  offset: 0, 0
+  index: -1
+btn-female-up
+  rotate: false
+  xy: 538, 34
+  size: 88, 82
+  orig: 88, 82
+  offset: 0, 0
+  index: -1
+btn-male-down
+  rotate: false
+  xy: 628, 102
+  size: 88, 82
+  orig: 88, 82
+  offset: 0, 0
+  index: -1
+btn-male-up
+  rotate: false
+  xy: 718, 102
+  size: 88, 82
+  orig: 88, 82
+  offset: 0, 0
+  index: -1
+btn-save-down
+  rotate: false
+  xy: 342, 13
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+btn-save-up
+  rotate: false
+  xy: 640, 186
+  size: 194, 61
+  orig: 194, 61
+  offset: 0, 0
+  index: -1
+lblAge
+  rotate: false
+  xy: 628, 22
+  size: 84, 38
+  orig: 84, 38
+  offset: 0, 0
+  index: -1
+lblGender
+  rotate: false
+  xy: 836, 210
+  size: 161, 37
+  orig: 161, 37
+  offset: 0, 0
+  index: -1
+lblName
+  rotate: false
+  xy: 628, 62
+  size: 127, 38
+  orig: 127, 38
+  offset: 0, 0
+  index: -1
+text
+  rotate: false
+  xy: 342, 202
+  size: 296, 45
+  orig: 296, 45
+  offset: 0, 0
+  index: -1

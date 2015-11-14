@@ -1,0 +1,152 @@
+[
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 2,
+	colorsToFind: [
+		1,
+		2,
+		3,
+		1
+	],
+	visibleBalloon: 3,
+	name: "Level 1",
+	minSpeed: 1,
+	isCarryingObject: false,
+	targetFish: 1
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 2,
+	colorsToFind: [
+		4,
+		5,
+		6,
+		0
+	],
+	visibleBalloon: 4,
+	name: "Level 2",
+	minSpeed: 1,
+	isCarryingObject: false,
+	targetFish: 1
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 2,
+	colorsToFind: [
+		1,
+		2,
+		3,
+		4
+	],
+	visibleBalloon: 5,
+	name: "Level 2",
+	minSpeed: 1,
+	isCarryingObject: true,
+	targetFish: 2
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 2,
+	colorsToFind: [
+		5,
+		6,
+		1,
+		0
+	],
+	visibleBalloon: 5,
+	name: "Level 2",
+	minSpeed: 1,
+	isCarryingObject: false,
+	targetFish: 2
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 3,
+	colorsToFind: [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		0
+	],
+	visibleBalloon: 5,
+	name: "Level 2",
+	minSpeed: 2,
+	isCarryingObject: true,
+	targetFish: 2
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 3,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	visibleBalloon:6,
+	name: "Level 2",
+	minSpeed: 2,
+	isCarryingObject: true,
+	targetFish: 3
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 4,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	visibleBalloon:7,
+	name: "Level 2",
+	minSpeed: 1,
+	isCarryingObject: false,
+	targetFish: 4
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 4,
+	colorsToFind: [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		0
+	],
+	visibleBalloon: 8,
+	name: "Level 2",
+	minSpeed: 2,
+	isCarryingObject: true,
+	targetFish: 4
+},
+{
+	class: com.minutegamez.elearning.color.match.LevelManager$Level,
+	maxSpeed: 4,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	visibleBalloon: 9,
+	name: "Level 2",
+	minSpeed: 1,
+	isCarryingObject: true,
+	targetFish: 5
+}
+]

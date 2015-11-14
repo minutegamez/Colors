@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
 
-public class MenuAssets implements Assets {
+public class MenuAssets implements Asset {
 
 	public static final MenuAssets instance = new MenuAssets();
 	private static final String TEXTURE = "images/menu/screen_colors.pack";

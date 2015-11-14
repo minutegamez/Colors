@@ -1,0 +1,41 @@
+
+popup_tutorial.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 2
+  size: 338, 245
+  orig: 338, 245
+  offset: 0, 0
+  index: -1
+btn-arrow-down
+  rotate: false
+  xy: 524, 177
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+btn-arrow-up
+  rotate: false
+  xy: 342, 53
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+btn-play-down
+  rotate: false
+  xy: 342, 187
+  size: 180, 60
+  orig: 180, 60
+  offset: 0, 0
+  index: -1
+btn-play-up
+  rotate: false
+  xy: 342, 125
+  size: 180, 60
+  orig: 180, 60
+  offset: 0, 0
+  index: -1

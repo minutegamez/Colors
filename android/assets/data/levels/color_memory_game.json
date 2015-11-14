@@ -1,0 +1,141 @@
+[
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		1,
+		2
+	],
+	colNum: 2,
+	rowNum: 2,
+	name: "Level 1",
+	isIndexRandom: false,
+	imageIndex: 0,
+	visibleTiles: 4
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		3,
+		4
+	],
+	colNum: 2,
+	rowNum: 2,
+	name: "Level 2",
+	isIndexRandom: false,
+	imageIndex: 1,
+	visibleTiles: 4
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		5,
+		6,
+		0,
+		1
+	],
+	colNum: 2,
+	rowNum: 4,
+	name: "Level 3",
+	isIndexRandom: false,
+	imageIndex: 0,
+	visibleTiles: 8
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		2,
+		3,
+		4,
+		5
+	],
+	colNum: 2,
+	rowNum: 4,
+	name: "Level 4",
+	isIndexRandom: false,
+	imageIndex: 1,
+	visibleTiles: 8
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		6,
+		0,
+		1,
+		2
+	],
+	colNum: 2,
+	rowNum: 4,
+	name: "Level 5",
+	isIndexRandom: false,
+	imageIndex: 0,
+	visibleTiles: 8
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		3,
+		4,
+		5,
+		6,
+		0,
+		1
+	],
+	colNum: 4,
+	rowNum: 4,
+	name: "Level 6",
+	isIndexRandom: false,
+	imageIndex: 1,
+	visibleTiles: 12
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		2,
+		3,
+		4,
+		5,
+		6,
+		0
+	],
+	colNum: 4,
+	rowNum: 4,
+	name: "Level 7",
+	isIndexRandom: false,
+	imageIndex: 0,
+	visibleTiles: 12
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	colNum: 4,
+	rowNum: 4,
+	name: "Level 8",
+	isIndexRandom: false,
+	imageIndex: 1,
+	visibleTiles: 12
+},
+{
+	class: com.minutegamez.elearning.color.memory_game.LevelManager$Level,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5
+	],
+	colNum: 4,
+	rowNum: 4,
+	name: "Level 9",
+	isIndexRandom: false,
+	imageIndex: 1,
+	visibleTiles: 12
+}
+]
