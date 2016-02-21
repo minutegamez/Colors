@@ -19,7 +19,7 @@ public class Tank extends ImageGameObject {
 
 	public static final int STATE_EMPTY = 101;
 	public static final int STATE_NORMAL = 102;
-	public static final int STATE_ONEXIT = 103;
+	public static final int STATE_ON_EXIT = 103;
 
 	private TweenManager tweenManager;
 
@@ -128,7 +128,7 @@ public class Tank extends ImageGameObject {
 		for (Fish fish : fishesOnScreen) {
 			fish.speed += 6f;
 		}
-		setState(STATE_ONEXIT);
+		setState(STATE_ON_EXIT);
 	}
 
 	// init on start of level
@@ -147,8 +147,8 @@ public class Tank extends ImageGameObject {
 	}
 
 	public void update(float deltaTime) {
-
-		if (state == STATE_NORMAL || state == STATE_ONEXIT) {
+		System.out.println("pdate tank");
+		if (state == STATE_NORMAL || state == STATE_ON_EXIT) {
 			boolean allFishExited = true;
 			for (Fish fish : fishesOnScreen) {
 				fish.update(deltaTime);
@@ -200,7 +200,7 @@ public class Tank extends ImageGameObject {
 	}
 
 	public void remove(Fish fish) {
-		fish.state = Fish.STATE_NOT_VISIBLE;
+		fish.state = Fish.STATE_ON_EXIT;
 		targetFishesCount--;
 	}
 }

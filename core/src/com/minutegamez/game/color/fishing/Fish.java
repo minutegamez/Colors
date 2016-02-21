@@ -22,6 +22,11 @@ public class Fish extends ImageGameObject {
 	public static final int STATE_STOPPED = 2;
 	public static final int STATE_NOT_VISIBLE = 3;
 
+	public static final int STATE_NORMAL = 1;
+	public static final int STATE_ON_EXIT = 2;
+	public static final int STATE_EXITED = 3;
+	
+	
 	public static final int TYPE_BIG = 1;
 	public static final int TYPE_SMALL = 2;
 	public static final int TYPE_RAND = 3;

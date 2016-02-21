@@ -29,6 +29,7 @@ public class AnimationScreen extends AbstractGameScreen {
 	}
 
 	private void init() {
+		
 	}
 
 	@Override

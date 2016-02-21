@@ -63,7 +63,7 @@ public class WorldController extends AbstractWorldController {
 				}
 				// update the score(add errors if there is an incorrect
 				// attemptperformed)
-				scoreManager.update();
+				// scoreManager.update();
 			}
 		}
 	}
@@ -83,7 +83,7 @@ public class WorldController extends AbstractWorldController {
 		upperSeaObjects = new UpperSeaObjects(tweenManager);
 		frontCorals = new FrontCorals();
 		clouds = new Clouds();
-	
+
 		movingStarsParticle = new MovingStarsEffect(tweenManager);
 		groupObject.add(background);
 		groupObject.add(clouds);
@@ -101,6 +101,15 @@ public class WorldController extends AbstractWorldController {
 	}
 
 	private void startCorrectAnimation(Fish fish) {
+		tank.remove(fish);
+		soundManager.playClickSound();
+		startCorrectAnimation(fish);
+		// if all target fishes are tapped
+		if (tank.isTargetFishEmpty()) {
+			scoreManager.addScore(true);
+			soundManager.playCorrectSound();
+		}
+		
 		ImageGameObject dFish = displayFishes.getEmptyFish();
 		movingStarsParticle.setFishRegion(fish.getRegion());
 		movingStarsParticle.setPosition(fish.getX() + fish.getWidth() / 2,
@@ -111,24 +120,19 @@ public class WorldController extends AbstractWorldController {
 	}
 
 	private void checkFishCollission(Vector3 touchPoint) {
-		for (Fish fish : tank.fishesOnScreen) {
-			if (collided(fish, touchPoint)) {
-				// if correct fish is tapped
-				if (tank.ifFishIsATarget(fish)) {
-					tank.remove(fish);
-					startCorrectAnimation(fish);
-					// if all target fishes are tapped
-					if (tank.isTargetFishEmpty()) {
-						scoreManager.addScore(true);
-						soundManager.playCorrectSound();
+		if (tank.state == Tank.STATE_NORMAL) {
+			for (Fish fish : tank.fishesOnScreen) {
+				if (collided(fish, touchPoint)) {
+					// if correct fish is tapped
+					if (tank.ifFishIsATarget(fish)) {
+						startCorrectAnimation(fish);
+						// if incorrect fish is tapped
+					} else {
+						scoreManager.addScore(false);
+						scoreManager.setError(tank.getTargetColor());
+						soundManager.playIncorrectSound(fish.colorIndex);
+						// soundManager.
 					}
-					break;
-					// if incorrect fish is tapped
-				} else {
-					scoreManager.addScore(false);
-					scoreManager.setError(tank.getTargetColor());
-					soundManager.playIncorrectSound(fish.colorIndex);
-					// soundManager.
 				}
 			}
 		}
