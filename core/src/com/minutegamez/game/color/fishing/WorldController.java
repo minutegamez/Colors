@@ -110,7 +110,7 @@ public class WorldController extends AbstractWorldController {
 			soundManager.playCorrectSound();
 		}
 		
-		ImageGameObject dFish = displayFishes.getEmptyFish();
+		ImageGameObject dFish	 = displayFishes.getEmptyFish();
 		movingStarsParticle.setFishRegion(fish.getRegion());
 		movingStarsParticle.setPosition(fish.getX() + fish.getWidth() / 2,
 				fish.getY() + fish.getHeight() / 2);
