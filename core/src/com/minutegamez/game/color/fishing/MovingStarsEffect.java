@@ -5,16 +5,15 @@ import aurelienribon.tweenengine.Timeline;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
-import aurelienribon.tweenengine.equations.Cubic;
 import aurelienribon.tweenengine.equations.Linear;
 import aurelienribon.tweenengine.equations.Quint;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.minutegamez.framework.ActorAccessor;
 import com.minutegamez.framework.ImageGameObject;
-import com.minutegamez.framework.ParticleObjects;
 
 public class MovingStarsEffect extends ImageGameObject {
 
@@ -23,29 +22,31 @@ public class MovingStarsEffect extends ImageGameObject {
 	private ImageGameObject bubble;
 	public boolean isFinished = true;
 	private TweenCallback callback;
-	private ParticleObjects bgStars;
+	private ParticleEffect burstBubbleParticle;
 	private Vector2 dest;
 	private Timeline timeline;
 	private ImageGameObject fish;
-
+	private Observer observer;
+	
 	public MovingStarsEffect(TweenManager tweenManager) {
 		this.tweenManager = tweenManager;
 		star = new ImageGameObject(ColorFishingAsset.instance.gameAsset.star);
-		bgStars = new ParticleObjects(
-				ColorFishingAsset.instance.particleAsset.movingStarsParticle);
+		burstBubbleParticle = new ParticleEffect(ColorFishingAsset.instance.particleAsset.movingStarsParticle);
 		bubble = new ImageGameObject(
 				ColorFishingAsset.instance.gameAsset.bubble);
 		fish = new ImageGameObject();
 		dest = new Vector2();
 		callback = new TweenCallback() {
+			
 			@Override
 			public void onEvent(int arg0, BaseTween<?> arg1) {
 				isFinished = true;
+				observer.update();
 			}
 		};
 
 	}
-
+	
 	private Timeline expandBubble() {
 		return Timeline
 				.createParallel()
@@ -73,8 +74,8 @@ public class MovingStarsEffect extends ImageGameObject {
 						.target(dest.x, dest.y));
 	}
 
-	public void start() {
-
+	public void start(Observer observer) {
+		this.observer = observer;
 		if (timeline != null) {
 			timeline.kill();
 		}
@@ -99,7 +100,7 @@ public class MovingStarsEffect extends ImageGameObject {
 								360))).setCallback(callback)
 				.start(tweenManager);
 		isFinished = false;
-		bgStars.start();
+		burstBubbleParticle.start();
 	}
 
 	@Override
@@ -108,7 +109,7 @@ public class MovingStarsEffect extends ImageGameObject {
 		bubble.setPosition(x - bubble.getWidth() / 2, y - bubble.getHeight()
 				/ 2);
 		fish.setPosition(x - fish.getWidth() / 2, y - fish.getHeight() / 2);
-		bgStars.setPosition(x, y);
+		burstBubbleParticle.setPosition(x, y);
 
 	}
 
@@ -126,14 +127,14 @@ public class MovingStarsEffect extends ImageGameObject {
 		if (!isFinished) {
 			fish.draw(batch, parentAlpha);
 			bubble.draw(batch, parentAlpha);
-			bgStars.draw(batch, parentAlpha);
+			burstBubbleParticle.draw(batch, parentAlpha);
 		}
 	}
 
 	@Override
 	public void update(float delta) {
 		super.update(delta);
-		bgStars.update(delta);
+		burstBubbleParticle.update(delta);
 	}
 
 }

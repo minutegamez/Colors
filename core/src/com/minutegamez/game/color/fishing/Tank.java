@@ -48,7 +48,7 @@ public class Tank extends ImageGameObject {
 		
 		for (int j = 0; j < MAX_FISH; j++) {
 			ParticleEffect effect = effects.get(j);  
-			Fish fish = new Fish(effect);
+			Fish fish = new Fish(effect, tweenManager);
 			fishPool.add(fish);
 		}
 	}
@@ -137,7 +137,7 @@ public class Tank extends ImageGameObject {
 		colorsQueue.init(level.getColorsToFind());
 		fishesOnScreen.clear();
 		targetFishesCount = level.getTargetFish();
-
+		
 		int fishOnTank = level.getVisibleFishOnTank();
 		for (int j = 0; j < fishOnTank; j++) {
 			Fish fish = fishPool.get(j);
@@ -147,12 +147,11 @@ public class Tank extends ImageGameObject {
 	}
 
 	public void update(float deltaTime) {
-		System.out.println("pdate tank");
 		if (state == STATE_NORMAL || state == STATE_ON_EXIT) {
 			boolean allFishExited = true;
 			for (Fish fish : fishesOnScreen) {
 				fish.update(deltaTime);
-				if (fish.state != Fish.STATE_NOT_VISIBLE) {
+				if (fish.getState() != Fish.STATE_NOT_VISIBLE) {
 					allFishExited = false;
 				}
 			}
@@ -181,9 +180,7 @@ public class Tank extends ImageGameObject {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		for (Fish fish : fishesOnScreen) {
-			if (fish.state != Fish.STATE_NOT_VISIBLE) {
 				fish.draw(batch, parentAlpha);
-			}
 		}
 	}
 
@@ -196,11 +193,11 @@ public class Tank extends ImageGameObject {
 	}
 
 	public boolean ifFishIsATarget(Fish fish) {
-		return (fish.state == Fish.STATE_SWIMMING && fish.colorIndex == getTargetColor());
+		return (fish.getState() == Fish.STATE_SWIMMING && fish.colorIndex == getTargetColor());
 	}
 
 	public void remove(Fish fish) {
-		fish.state = Fish.STATE_ON_EXIT;
+		fish.setState(Fish.STATE_ON_CORRECT_ANIM);
 		targetFishesCount--;
 	}
 }

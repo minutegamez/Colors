@@ -208,7 +208,7 @@ public class ColorFishingAsset implements Asset {
 		public static final String MOVING_STAR_PARTICLE = "data/particle/bubbleburst";
 		public static final String FISH_BUBBLE_PARTICLE = "data/particle/fishbubble";
 
-		public Array<ParticleEffect> movingStarsParticle;
+		public ParticleEffect movingStarsParticle;
 		public Array<ParticleEffect> fishBubbleParticle;
 
 		@Override
@@ -221,16 +221,12 @@ public class ColorFishingAsset implements Asset {
 		public void init(AssetManager manager) {
 			ParticleEffect effect = manager.get(MOVING_STAR_PARTICLE,
 					ParticleEffect.class);
-			movingStarsParticle = new Array<ParticleEffect>();
+			movingStarsParticle = effect;
 			fishBubbleParticle = new Array<ParticleEffect>();
 
-			for (int j = 0; j < 3; j++) {
-				movingStarsParticle.add(new ParticleEffect(effect));
-			}
-
-			effect = manager.get(FISH_BUBBLE_PARTICLE, ParticleEffect.class);
+			ParticleEffect trailingBubbleParticle = manager.get(FISH_BUBBLE_PARTICLE, ParticleEffect.class);
 			for (int j = 0; j < Tank.MAX_FISH; j++) {
-				fishBubbleParticle.add(new ParticleEffect(effect));
+				fishBubbleParticle.add(new ParticleEffect(trailingBubbleParticle));
 			}
 		}
 
@@ -242,9 +238,7 @@ public class ColorFishingAsset implements Asset {
 
 		@Override
 		public void dispose() {
-			for (ParticleEffect effect : movingStarsParticle) {
-				effect.dispose();
-			}
+				movingStarsParticle.dispose();
 		}
 	}
 

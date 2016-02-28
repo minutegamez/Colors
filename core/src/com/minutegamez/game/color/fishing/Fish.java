@@ -1,5 +1,7 @@
 package com.minutegamez.game.color.fishing;
 
+import aurelienribon.tweenengine.TweenManager;
+
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
@@ -21,12 +23,12 @@ public class Fish extends ImageGameObject {
 	public static final int STATE_SWIMMING = 1;
 	public static final int STATE_STOPPED = 2;
 	public static final int STATE_NOT_VISIBLE = 3;
+	public static final int STATE_ON_CORRECT_ANIM = 4;
 
 	public static final int STATE_NORMAL = 1;
 	public static final int STATE_ON_EXIT = 2;
 	public static final int STATE_EXITED = 3;
-	
-	
+
 	public static final int TYPE_BIG = 1;
 	public static final int TYPE_SMALL = 2;
 	public static final int TYPE_RAND = 3;
@@ -34,22 +36,50 @@ public class Fish extends ImageGameObject {
 	private Array<Animation> fishAnimation1;
 	private Array<Animation> fishAnimation2;
 
+	private MovingStarsEffect onCaughtAnim;
+
 	private ParticleEffect effectBubble;
-	public int state;
+	private int state;
 
 	public Fish() {
 
 	}
 
-	public Fish(ParticleEffect effect) {
+	class FishAnimationObserver implements Observer {
+
+		@Override
+		public void update() {
+			setState(STATE_EXITED);
+		}
+
+	}
+
+	private FishAnimationObserver observer;
+
+	public Fish(ParticleEffect effect, TweenManager tweenManager) {
 		this.effectBubble = effect;
+		observer = new FishAnimationObserver();
 
 		fishAnimation1 = ColorFishingAsset.instance.gameAsset.fishAnimation1;
 		fishAnimation2 = ColorFishingAsset.instance.gameAsset.fishAnimation2;
 
+		onCaughtAnim = new MovingStarsEffect(tweenManager);
+
 		setAnimation(fishAnimation1.get(0));
 		state = STATE_NOT_VISIBLE;
 		effectBubble.start();
+	}
+
+	public void init() {
+
+	}
+
+	public void startOnCaughtAnim(float destX, float destY) {
+		onCaughtAnim.setFishRegion(getRegion());
+		onCaughtAnim.setPosition(getX() + getWidth() / 2, getY() + getHeight()
+				/ 2);
+		onCaughtAnim.setDestination(destX, destY);
+		setState(STATE_ON_CORRECT_ANIM);
 	}
 
 	@Override
@@ -69,6 +99,7 @@ public class Fish extends ImageGameObject {
 		effectBubble.setPosition(getX() + getWidth() * .9f, getY()
 				+ getHeight() / 2);
 		effectBubble.update(deltaTime);
+		onCaughtAnim.update(deltaTime);
 	}
 
 	private void setAnimation(Animation animation) {
@@ -79,6 +110,10 @@ public class Fish extends ImageGameObject {
 		float height = region.getRegionHeight() / Constants.PIXEL_RATIO_Y;
 
 		setSize(width, height);
+	}
+
+	public int getState() {
+		return state;
 	}
 
 	public void setType(int type) {
@@ -99,6 +134,19 @@ public class Fish extends ImageGameObject {
 
 	}
 
+	public void setState(int state) {
+		this.state = state;
+		switch (state) {
+		case STATE_NORMAL:
+			setVisible(true);
+			break;
+		case STATE_ON_CORRECT_ANIM:
+			setVisible(false);
+			onCaughtAnim.start(getObserver());
+			break;
+		}
+	}
+
 	public void reset() {
 		// set random animation
 
@@ -106,27 +154,38 @@ public class Fish extends ImageGameObject {
 		float randScale = MathUtils.random(.9f, 1.0f);
 		setScale(randScale, randScale);
 
-		System.out.println(getX());
 		effectBubble.setPosition(getX(), getY());
 		effectBubble.update(1);
 		effectBubble.start();
 		// reset getRotation()
 		setRotation(0);
-		state = STATE_SWIMMING;
+		setState(STATE_NORMAL);
 	}
-	
+
 	public TextureRegion getRegion() {
 		return currAnimation.getKeyFrame(stateTime, true);
 	}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		effectBubble.draw(batch);
-		TextureRegion region = currAnimation.getKeyFrame(stateTime, true);
-		batch.draw(region.getTexture(), getX(), getY(), getOriginX(),
-				getOriginY(), getWidth(), getHeight(), getScaleX(),
-				getScaleY(), getRotation(), region.getRegionX(),
-				region.getRegionY(), region.getRegionWidth(),
-				region.getRegionHeight(), false, false);
+		if (isVisible()) {
+			effectBubble.draw(batch);
+			TextureRegion region = currAnimation.getKeyFrame(stateTime, true);
+			batch.draw(region.getTexture(), getX(), getY(), getOriginX(),
+					getOriginY(), getWidth(), getHeight(), getScaleX(),
+					getScaleY(), getRotation(), region.getRegionX(),
+					region.getRegionY(), region.getRegionWidth(),
+					region.getRegionHeight(), false, false);
+		}
+//		if (state == STATE_ON_CORRECT_ANIM)
+			onCaughtAnim.draw(batch, parentAlpha);
+	}
+
+	public FishAnimationObserver getObserver() {
+		return observer;
+	}
+
+	public void setObserver(FishAnimationObserver observer) {
+		this.observer = observer;
 	}
 }

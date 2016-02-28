@@ -2,6 +2,7 @@ package com.minutegamez.game.color.fishing;
 
 import aurelienribon.tweenengine.TweenManager;
 
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.math.Vector3;
 import com.minutegamez.framework.AbstractWorldController;
 import com.minutegamez.framework.ImageGameObject;
@@ -23,8 +24,8 @@ public class WorldController extends AbstractWorldController {
 	public SoundManager soundManager;
 	public ScoreManager scoreManager;
 	public DisplayFishes displayFishes;
-	public MovingStarsEffect movingStarsParticle;
-
+	public ParticleEffect bubbleTest;
+	public ParticleEffect bubbleTest2;
 	public Level level;
 
 	private boolean incorrectAdded;
@@ -84,7 +85,11 @@ public class WorldController extends AbstractWorldController {
 		frontCorals = new FrontCorals();
 		clouds = new Clouds();
 
-		movingStarsParticle = new MovingStarsEffect(tweenManager);
+		bubbleTest = new ParticleEffect(
+				ColorFishingAsset.instance.particleAsset.movingStarsParticle);
+		bubbleTest2 = new ParticleEffect(
+				ColorFishingAsset.instance.particleAsset.movingStarsParticle);
+
 		groupObject.add(background);
 		groupObject.add(clouds);
 		groupObject.add(frontCorals);
@@ -92,7 +97,6 @@ public class WorldController extends AbstractWorldController {
 		groupObject.add(bubbles);
 		groupObject.add(upperSeaObjects);
 		// groupObject.add(displayFishes);
-		groupObject.add(movingStarsParticle);
 	}
 
 	@Override
@@ -103,26 +107,29 @@ public class WorldController extends AbstractWorldController {
 	private void startCorrectAnimation(Fish fish) {
 		tank.remove(fish);
 		soundManager.playClickSound();
-		startCorrectAnimation(fish);
+		// startCorrectAnimation(fish);
 		// if all target fishes are tapped
 		if (tank.isTargetFishEmpty()) {
 			scoreManager.addScore(true);
 			soundManager.playCorrectSound();
 		}
-		
-		ImageGameObject dFish	 = displayFishes.getEmptyFish();
-		movingStarsParticle.setFishRegion(fish.getRegion());
-		movingStarsParticle.setPosition(fish.getX() + fish.getWidth() / 2,
-				fish.getY() + fish.getHeight() / 2);
-		movingStarsParticle.setDestination(dFish.getX() + dFish.getWidth() / 2,
+
+		ImageGameObject dFish = displayFishes.getEmptyFish();
+		fish.startOnCaughtAnim(dFish.getX() + dFish.getWidth() / 2,
 				dFish.getY() + dFish.getHeight() / 2);
-		movingStarsParticle.start();
+		System.out.println("start corr anim");
+
 	}
 
 	private void checkFishCollission(Vector3 touchPoint) {
+		bubbleTest.setPosition(touchPoint.x, touchPoint.y);
+		bubbleTest2.setPosition(touchPoint.x + 2, touchPoint.y);
+		bubbleTest.start();
+		bubbleTest2.start();
 		if (tank.state == Tank.STATE_NORMAL) {
 			for (Fish fish : tank.fishesOnScreen) {
-				if (collided(fish, touchPoint)) {
+				if (collided(fish, touchPoint)
+						&& fish.getState() == Fish.STATE_NORMAL) {
 					// if correct fish is tapped
 					if (tank.ifFishIsATarget(fish)) {
 						startCorrectAnimation(fish);
@@ -140,6 +147,8 @@ public class WorldController extends AbstractWorldController {
 
 	@Override
 	public void update(float deltaTime) {
+		bubbleTest.update(deltaTime);
+		bubbleTest2.update(deltaTime);
 		switch (getState()) {
 		case STATE_PAUSED:
 			break;
