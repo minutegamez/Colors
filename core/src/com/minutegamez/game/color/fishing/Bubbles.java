@@ -75,7 +75,7 @@ public class Bubbles extends ImageGameObject {
 			setScale(0, 0);
 
 			if (timeline != null) {
-				tweenManager.killTarget(this);;
+				tweenManager.killTarget(this);
 			}
 
 			timeline = Timeline

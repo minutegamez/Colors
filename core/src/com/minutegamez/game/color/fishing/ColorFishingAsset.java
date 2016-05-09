@@ -74,6 +74,8 @@ public class ColorFishingAsset implements Asset {
 		public AtlasRegion bubble;
 		public AtlasRegion star;
 		public Array<AtlasRegion> monkey;
+		public Array<AtlasRegion> monkeyHappy;
+		public Array<AtlasRegion> monkeyAngry;
 		public Array<AtlasRegion> clouds;
 
 		public AtlasRegion background;
@@ -102,6 +104,8 @@ public class ColorFishingAsset implements Asset {
 			emptyFish = atlas.findRegion("emptyFish");
 			arrow = atlas.findRegion("arrow");
 			monkey = atlas.findRegions("monkey-normal");
+			monkeyHappy = atlas.findRegions("monkey-happy");
+			monkeyAngry = atlas.findRegions("monkey-angry");
 			boat = atlas.findRegion("boat");
 			flowerBranch = atlas.findRegion("flower-branch");
 			flowerHead = atlas.findRegion("flower-head");
