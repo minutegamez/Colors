@@ -1,0 +1,14 @@
+[
+{
+	class: java.lang.String
+	value: Instruction # 1
+}
+{
+	class: java.lang.String
+	value: Instruction # 2
+}
+{
+	class: java.lang.String
+	value: Instruction # 3
+}
+]

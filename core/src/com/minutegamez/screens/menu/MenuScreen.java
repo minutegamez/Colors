@@ -88,4 +88,5 @@ public class MenuScreen extends GUIScreen {
 	public void setInputProcessor() {
 
 	}
+
 }

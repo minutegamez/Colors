@@ -2,7 +2,6 @@ package com.minutegamez.framework;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
@@ -10,8 +9,8 @@ import com.minutegamez.screens.transition.ScreenTransition;
 
 public class DirectedGame implements ApplicationListener {
 
-	private Screen currScreen;
-	private Screen nextScreen;
+	private AbstractScreen currScreen;
+	private AbstractScreen nextScreen;
 
 	private FrameBuffer currFbo;
 	private FrameBuffer nextFbo;
@@ -24,11 +23,11 @@ public class DirectedGame implements ApplicationListener {
 
 	private SpriteBatch batch;
 
-	public void setScreen(Screen screen) {
+	public void setScreen(AbstractScreen screen) {
 		setScreen(screen, null);
 	}
 
-	public void setScreen(Screen screen, ScreenTransition screenTransition) {
+	public void setScreen(AbstractScreen screen, ScreenTransition screenTransition) {
 		int width = Gdx.graphics.getWidth();
 		int height = Gdx.graphics.getHeight();
 
@@ -89,6 +88,7 @@ public class DirectedGame implements ApplicationListener {
 				}
 				nextScreen.resume();
 				currScreen = nextScreen;
+				Gdx.input.setInputProcessor(nextScreen.getInputProcessor());
 				nextScreen = null;
 				screenTransition = null;
 			} else {

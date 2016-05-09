@@ -1,0 +1,467 @@
+
+fishing.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+background
+  rotate: false
+  xy: 2, 539
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+bubble
+  rotate: false
+  xy: 124, 302
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+cloud
+  rotate: false
+  xy: 2, 363
+  size: 118, 45
+  orig: 118, 45
+  offset: 0, 0
+  index: 3
+cloud
+  rotate: false
+  xy: 122, 368
+  size: 68, 40
+  orig: 68, 40
+  offset: 0, 0
+  index: 1
+cloud
+  rotate: false
+  xy: 164, 3
+  size: 115, 63
+  orig: 115, 63
+  offset: 0, 0
+  index: 2
+color
+  rotate: false
+  xy: 281, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+color
+  rotate: false
+  xy: 347, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+color
+  rotate: false
+  xy: 413, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+color
+  rotate: false
+  xy: 479, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+color
+  rotate: false
+  xy: 545, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+color
+  rotate: false
+  xy: 611, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+color
+  rotate: false
+  xy: 677, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+coral
+  rotate: false
+  xy: 535, 276
+  size: 78, 132
+  orig: 78, 132
+  offset: 0, 0
+  index: 1
+emptyFish
+  rotate: false
+  xy: 757, 472
+  size: 41, 65
+  orig: 41, 65
+  offset: 0, 0
+  index: -1
+fish2-1-1
+  rotate: false
+  xy: 2, 287
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-1-2
+  rotate: false
+  xy: 615, 287
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-2-1
+  rotate: false
+  xy: 164, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-2-2
+  rotate: false
+  xy: 286, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-3-1
+  rotate: false
+  xy: 408, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-3-2
+  rotate: false
+  xy: 530, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-4-1
+  rotate: false
+  xy: 652, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-4-2
+  rotate: false
+  xy: 774, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-5-1
+  rotate: false
+  xy: 896, 68
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+flower-branch
+  rotate: false
+  xy: 757, 438
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+flower-head
+  rotate: false
+  xy: 757, 404
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+garbage
+  rotate: false
+  xy: 635, 360
+  size: 120, 177
+  orig: 120, 177
+  offset: 0, 0
+  index: 3
+garbage
+  rotate: false
+  xy: 403, 278
+  size: 130, 130
+  orig: 130, 130
+  offset: 0, 0
+  index: 1
+garbage
+  rotate: false
+  xy: 2, 37
+  size: 160, 102
+  orig: 160, 102
+  offset: 0, 0
+  index: 2
+hint
+  rotate: false
+  xy: 804, 785
+  size: 199, 234
+  orig: 199, 234
+  offset: 0, 0
+  index: -1
+monkey-angry
+  rotate: false
+  xy: 804, 656
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 1
+monkey-angry
+  rotate: false
+  xy: 804, 527
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 2
+monkey-happy
+  rotate: false
+  xy: 2, 410
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 1
+monkey-happy
+  rotate: false
+  xy: 213, 410
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 2
+monkey-normal
+  rotate: false
+  xy: 424, 410
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 1
+monkey-normal
+  rotate: false
+  xy: 800, 398
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 2
+monkey-normal
+  rotate: false
+  xy: 757, 269
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 3
+monkey-normal
+  rotate: false
+  xy: 192, 281
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: 4
+star
+  rotate: false
+  xy: 743, 6
+  size: 64, 60
+  orig: 64, 60
+  offset: 0, 0
+  index: -1
+wave
+  rotate: false
+  xy: 2, 201
+  size: 1000, 66
+  orig: 1000, 66
+  offset: 0, 0
+  index: 1
+wave
+  rotate: false
+  xy: 2, 141
+  size: 982, 58
+  orig: 982, 58
+  offset: 0, 0
+  index: 2
+
+fishing2.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+arrow
+  rotate: false
+  xy: 519, 146
+  size: 100, 75
+  orig: 100, 75
+  offset: 0, 0
+  index: -1
+boat
+  rotate: false
+  xy: 2, 75
+  size: 170, 146
+  orig: 170, 146
+  offset: 0, 0
+  index: -1
+btnReplay
+  rotate: false
+  xy: 621, 144
+  size: 96, 77
+  orig: 96, 77
+  offset: 0, 0
+  index: 1
+btnReplay
+  rotate: false
+  xy: 719, 144
+  size: 96, 77
+  orig: 96, 77
+  offset: 0, 0
+  index: 2
+coral
+  rotate: false
+  xy: 418, 141
+  size: 99, 80
+  orig: 99, 80
+  offset: 0, 0
+  index: 2
+coral
+  rotate: false
+  xy: 817, 149
+  size: 81, 72
+  orig: 81, 72
+  offset: 0, 0
+  index: 3
+fish1-1-1
+  rotate: false
+  xy: 900, 153
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-1-2
+  rotate: false
+  xy: 418, 71
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-2-1
+  rotate: false
+  xy: 124, 5
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-2-2
+  rotate: false
+  xy: 200, 7
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-3-1
+  rotate: false
+  xy: 276, 7
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-3-2
+  rotate: false
+  xy: 494, 71
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-4-1
+  rotate: false
+  xy: 570, 74
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-4-2
+  rotate: false
+  xy: 646, 74
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-5-1
+  rotate: false
+  xy: 722, 74
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-5-2
+  rotate: false
+  xy: 798, 74
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-6-1
+  rotate: false
+  xy: 874, 79
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-6-2
+  rotate: false
+  xy: 874, 9
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-7-1
+  rotate: false
+  xy: 570, 4
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish1-7-2
+  rotate: false
+  xy: 646, 4
+  size: 74, 68
+  orig: 74, 68
+  offset: 0, 0
+  index: -1
+fish2-5-2
+  rotate: false
+  xy: 2, 2
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-6-1
+  rotate: false
+  xy: 174, 150
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-6-2
+  rotate: false
+  xy: 174, 77
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-7-1
+  rotate: false
+  xy: 296, 150
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+fish2-7-2
+  rotate: false
+  xy: 296, 77
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1

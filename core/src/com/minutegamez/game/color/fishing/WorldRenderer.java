@@ -6,18 +6,22 @@ import com.minutegamez.framework.AbstractWorldRenderer;
 
 public class WorldRenderer extends AbstractWorldRenderer{
 
-	AbstractWorldController controller;
+	WorldController controller;
 
-	public WorldRenderer(AbstractWorldController controller){
+	public WorldRenderer(SpriteBatch batch, WorldController controller){
+		super(batch);
 		this.controller = controller;
 	}
 
 	@Override
-	public void render(SpriteBatch batch) {
+	public void render() {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		controller.getObjectGroup().render(batch);
+		controller.getObjectGroup().draw(batch, 1f);
+		controller.bubbleTest.draw(batch);
+		controller.bubbleTest2.draw(batch);
 		batch.end();
+//		System.out.println("drawing");
 	}
 
 }

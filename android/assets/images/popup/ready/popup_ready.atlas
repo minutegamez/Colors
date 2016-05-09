@@ -1,0 +1,20 @@
+
+popup_ready.png
+size: 512,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+lbl-go
+  rotate: false
+  xy: 2, 92
+  size: 308, 129
+  orig: 308, 129
+  offset: 0, 0
+  index: -1
+lbl-ready
+  rotate: false
+  xy: 2, 2
+  size: 325, 88
+  orig: 325, 88
+  offset: 0, 0
+  index: -1

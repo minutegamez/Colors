@@ -1,27 +1,23 @@
 package com.minutegamez.framework;
 
-import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenManager;
 
-import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector3;
+import com.minutegamez.utils.Constants;
 
-public abstract class AbstractGameScreen extends InputAdapter implements Screen {
+public abstract class AbstractGameScreen extends AbstractScreen implements
+		Screen {
 
 	// state starts from 100
 
-	public static final int RUNNING = 100;
-	public static final int PAUSED = 101;
-	public static final int RESUMED = 102;
 
-	protected int state;
-	protected DirectedGame game;
-	protected SpriteBatch batch;
-	protected Vector3 touchPoint;
+	protected InputMultiplexer inputMultiplexer;
 	protected TweenManager tweenManager;
+	protected TweenManager guiTweenManager;
 
 	protected PopupStage pauseScreen;
 	protected PopupStage levelEndScreen;
@@ -29,23 +25,28 @@ public abstract class AbstractGameScreen extends InputAdapter implements Screen 
 	protected PopupStage tutorialScreen;
 	protected PopupStage readyScreen;
 	protected PopupStage levelScreen;
+	protected PopupStage loadingScreen;
 
-	protected PopupStage currPopUp;
-	protected PopupStage runningPopup;
+	protected PopupStage runningScreen;
+
+	protected OrthographicCamera guiCam;
 
 	protected AbstractWorldRenderer worldRenderer;
-	protected AbstractWorldController worldController;
 
 	// protected boolean gameStarted;
 
 	public AbstractGameScreen(DirectedGame game) {
-		this.game = game;
+		super(game);
 		batch = new SpriteBatch();
-		touchPoint = new Vector3();
+		inputMultiplexer = new InputMultiplexer();
+		guiCam = new OrthographicCamera(Constants.GUI_WIDTH,
+				Constants.GUI_HEIGHT);
+		guiCam.update();
+
+		guiTweenManager = new TweenManager();
 
 		// init tween
 		tweenManager = new TweenManager();
-		Tween.registerAccessor(AbstractGameObject.class, new ObjectAccessor());
 
 		// init popups
 
@@ -56,18 +57,8 @@ public abstract class AbstractGameScreen extends InputAdapter implements Screen 
 
 	public abstract void update(float delta);
 
-	@Override
-	public void show() {
 
-	}
 
-	public int getState() {
-		return state;
-	}
-
-	public void setState(int state) {
-		this.state = state;
-	}
 
 	@Override
 	public void render(float delta) {
@@ -77,7 +68,6 @@ public abstract class AbstractGameScreen extends InputAdapter implements Screen 
 
 	@Override
 	public void resize(int width, int height) {
-
 	}
 
 	@Override
@@ -90,12 +80,8 @@ public abstract class AbstractGameScreen extends InputAdapter implements Screen 
 
 	}
 
-	@Override
-	public void hide() {
-
-	}
-
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		System.out.println("x");
 		return false;
 	}
 
@@ -108,10 +94,10 @@ public abstract class AbstractGameScreen extends InputAdapter implements Screen 
 	}
 
 	@Override
-	public void dispose() {
+	public abstract void dispose();
 
+	public InputProcessor getInputProcessor() {
+		return inputMultiplexer;
 	}
-
-	public abstract InputProcessor getInputProcessor();
 
 }

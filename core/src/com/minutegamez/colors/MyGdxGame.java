@@ -2,11 +2,11 @@ package com.minutegamez.colors;
 
 import aurelienribon.tweenengine.Tween;
 
-import com.minutegamez.framework.AbstractGameObject;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.minutegamez.framework.ActorAccessor;
 import com.minutegamez.framework.DirectedGame;
-import com.minutegamez.framework.ObjectAccessor;
-import com.minutegamez.game.color.fishing.GameScreen;
 import com.minutegamez.guiassets.GUIAssetsLoader;
+import com.minutegamez.screens.profile.ProfileScreen;
 import com.minutegamez.screens.transition.ScreenTransition;
 import com.minutegamez.screens.transition.ScreenTransitionFade;
 
@@ -21,18 +21,20 @@ public class MyGdxGame extends DirectedGame {
 		guiAssets.dispose();
 	}
 
-
 	@Override
 	public void create() {
 		initAssets();
 		registerTweenAccessor();
 		ScreenTransition screenTransition = new ScreenTransitionFade();
-		setScreen(new GameScreen(this), screenTransition);
+		setScreen(new ProfileScreen(this), screenTransition);
+//		setScreen(new AnimationScreen(this), screenTransition);
+//		 setScreen(new GameScreen(this), screenTransition);
 
 	}
 
 	private void registerTweenAccessor() {
-		Tween.registerAccessor(AbstractGameObject.class, new ObjectAccessor());
+//		Tween.registerAccessor(AbstractGameObject.class, new ObjectAccessor());
+		Tween.registerAccessor(Actor.class, new ActorAccessor());
 	}
 
 	private void initAssets() {

@@ -1,39 +1,29 @@
 package com.minutegamez.guiassets;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.utils.Array;
-import com.minutegamez.framework.PopupAssets;
-import com.minutegamez.screens.menu.statpopup.StatAssets;
-import com.minutegamez.screens.profile.newuserpopup.NewUserAssets;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-public class ProfileAssets implements Assets {
+public class ProfileAssets implements Asset {
 
 	public static final ProfileAssets instance = new ProfileAssets();
-	private static final String TEXTURE = "images/profile/profile.atlas";
-
-	public static Array<AtlasRegion> btnProfile;
-	public static AtlasRegion imgMale;
-	public static AtlasRegion imgFemale;
+	private static final String SKIN_PROFILE = "images/profile/profile.json";
+	private static final String SKIN_NEW_PROFILE = "images/profile/new_profile.json";
+	
+	public Skin profileSkin;
+	public Skin newProfileSkin;
 
 	private ProfileAssets() {
 	}
 
 	@Override
 	public void load(AssetManager manager) {
-		manager.load(TEXTURE, TextureAtlas.class);
-		manager.finishLoading();
+		profileSkin = new Skin(Gdx.files.internal(SKIN_PROFILE));
+		newProfileSkin = new Skin(Gdx.files.internal(SKIN_NEW_PROFILE));
 	}
 
 	@Override
 	public void init(AssetManager manager) {
-		TextureAtlas atlas = manager.get(TEXTURE);
-		btnProfile = atlas.findRegions("btnProfile");
-		imgMale = atlas.findRegion("boy");
-		imgFemale = atlas.findRegion("girl");
-		NewUserAssets.instance.init(atlas);
-		StatAssets.instance.init(atlas);
 	}
 
 	@Override
@@ -43,6 +33,8 @@ public class ProfileAssets implements Assets {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+		profileSkin.dispose();
+		newProfileSkin.dispose();
+		System.out.println("profi disp");
 	}
 }

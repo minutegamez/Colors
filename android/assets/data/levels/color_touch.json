@@ -1,0 +1,142 @@
+[
+{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton:4,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3
+	],
+	buttonType: TintableButton,
+	targetFish:1,
+	isRandom:false,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 4,
+	colorsToFind: [
+		4,
+		5,
+		6,
+		0,
+		1
+	],
+	buttonType: TintableImageButton,
+	targetFish:1,
+	isRandom:false,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 4,
+	colorsToFind: [
+		2,
+		3,
+		4,
+		5,
+		6,
+		0
+	],
+	buttonType: ImageButton,
+	targetFish:1,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 4,
+	isRandom:false,
+	colorsToFind: [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	buttonType: TintableImageButton,
+	targetFish:2,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 8,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	buttonType: TintableButton,
+	targetFish:1,
+	isRandom:false,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 8,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
+	],
+	buttonType: ImageButton,
+	targetFish:2,
+	isRandom:false,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 8,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		0
+	],
+	buttonType: ImageButton,
+	targetFish:3,
+	isRandom:true,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 8,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		1
+	],
+	buttonType: TintableImageButton,
+	targetFish:3,
+	isRandom:true,
+	timeLimit: 60
+},{
+	class: com.minutegamez.elearning.color.touch.LevelManager$Level,
+	visibleButton: 8,
+	colorsToFind: [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		2
+	],
+	buttonType: ImageButton,
+	targetFish:3,
+	isRandom:true,
+	timeLimit: 60
+}
+]

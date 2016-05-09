@@ -1,0 +1,83 @@
+
+popup_level_end.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 2
+  size: 338, 245
+  orig: 338, 245
+  offset: 0, 0
+  index: -1
+btn-menu-down
+  rotate: false
+  xy: 342, 6
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+btn-menu-up
+  rotate: false
+  xy: 408, 6
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+btn-next-down
+  rotate: false
+  xy: 474, 6
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+btn-next-up
+  rotate: false
+  xy: 540, 6
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+btn-replay-down
+  rotate: false
+  xy: 865, 174
+  size: 73, 73
+  orig: 73, 73
+  offset: 0, 0
+  index: -1
+btn-replay-up
+  rotate: false
+  xy: 940, 174
+  size: 73, 73
+  orig: 73, 73
+  offset: 0, 0
+  index: -1
+rating-1
+  rotate: false
+  xy: 342, 190
+  size: 391, 57
+  orig: 391, 57
+  offset: 0, 0
+  index: -1
+rating-2
+  rotate: false
+  xy: 342, 131
+  size: 391, 57
+  orig: 391, 57
+  offset: 0, 0
+  index: -1
+rating-3
+  rotate: false
+  xy: 342, 72
+  size: 391, 57
+  orig: 391, 57
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 735, 127
+  size: 128, 120
+  orig: 128, 120
+  offset: 0, 0
+  index: -1

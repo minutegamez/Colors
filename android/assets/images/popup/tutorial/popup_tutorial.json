@@ -1,0 +1,6 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+		arrow: { down: btn-arrow-down, up: btn-arrow-up }
+		play: { down: btn-play-down, up: btn-play-up }
+	}
+}

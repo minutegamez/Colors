@@ -1,19 +1,19 @@
 package com.minutegamez.guiassets;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 
-public class SplashAssets implements Assets, AssetErrorListener {
+public class SplashAssets implements Asset, AssetErrorListener {
 
 	public static final SplashAssets instance = new SplashAssets();
 	private static final String TEXTURE_SPLASH = "images/splash/splash.atlas";
 	private static final String TEXTURE_SPLASH2 = "images/splash/menu.pack";
 
 	private SplashAssets() {
-
 	}
 
 	public static AtlasRegion libgdx_logo;
@@ -54,6 +54,5 @@ public class SplashAssets implements Assets, AssetErrorListener {
 
 	@Override
 	public void dispose() {
-
 	}
 }

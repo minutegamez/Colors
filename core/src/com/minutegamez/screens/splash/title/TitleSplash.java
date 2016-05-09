@@ -11,9 +11,9 @@ import aurelienribon.tweenengine.equations.Elastic;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Interpolation;
-import com.minutegamez.framework.AbstractGameObject;
+import com.minutegamez.framework.ActorAccessor;
 import com.minutegamez.framework.DirectedGame;
-import com.minutegamez.framework.ObjectAccessor;
+import com.minutegamez.framework.ImageGameObject;
 import com.minutegamez.framework.Renderer;
 import com.minutegamez.framework.SplashScreen;
 import com.minutegamez.screens.profile.ProfileScreen;
@@ -24,9 +24,9 @@ public class TitleSplash extends SplashScreen {
 
 	private Renderer renderer;
 
-	public AbstractGameObject background;
-	public AbstractGameObject colorsLabel;
-	public AbstractGameObject forKidsLabel;
+	public ImageGameObject background;
+	public ImageGameObject colorsLabel;
+	public ImageGameObject forKidsLabel;
 	private TweenManager tweenManager;
 
 	public TitleSplash(DirectedGame game) {
@@ -48,7 +48,7 @@ public class TitleSplash extends SplashScreen {
 		renderer.render(batch);
 	}
 
-	private void update(float delta) {
+	public void update(float delta) {
 		tweenManager.update(delta);
 		switch (state) {
 		case PAUSED:
@@ -70,20 +70,20 @@ public class TitleSplash extends SplashScreen {
 	// (1 sec delay) animation
 	private void startLabelAnimation() {
 		Timeline.createSequence()
-				.push(Tween.to(background, ObjectAccessor.OPACITY, 1).target(1))
+				.push(Tween.to(background, ActorAccessor.OPACITY, 1).target(1))
 				.push(Timeline
 						.createParallel()
-						.push(Tween.to(colorsLabel, ObjectAccessor.POS_X, 1.5f)
+						.push(Tween.to(colorsLabel, ActorAccessor.POS_X, 1.5f)
 								.target(50).ease(Elastic.OUT))
 						.push(Tween
-								.to(colorsLabel, ObjectAccessor.SCALE_XY, .1f)
+								.to(colorsLabel, ActorAccessor.SCALE_XY, .1f)
 								.repeatYoyo(1, 0).target(.5f, 1)))
 				.push(Timeline
 						.createParallel()
 						.push(Tween
-								.to(forKidsLabel, ObjectAccessor.SCALE_XY, 1)
+								.to(forKidsLabel, ActorAccessor.SCALE_XY, 1)
 								.ease(Back.IN).target(1, 1))
-						.push(Tween.to(forKidsLabel, ObjectAccessor.OPACITY,
+						.push(Tween.to(forKidsLabel, ActorAccessor.OPACITY,
 								.5f).target(1)))
 						//delay 1 sec
 						.push(Tween.to(null, 0, 1f))
@@ -105,5 +105,12 @@ public class TitleSplash extends SplashScreen {
 			state = State.PAUSED;
 		}
 	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

@@ -1,0 +1,7 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+		replay: { down: btn-replay-down, up: btn-replay-up }
+		next: { down: btn-next-down, up: btn-next-up }
+		menu: { down: btn-menu-down, up: btn-menu-up }
+	}
+}

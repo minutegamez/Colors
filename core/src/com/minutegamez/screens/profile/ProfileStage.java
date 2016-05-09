@@ -1,55 +1,73 @@
 package com.minutegamez.screens.profile;
 
-import static com.badlogic.gdx.math.Interpolation.bounceOut;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.scaleTo;
+import aurelienribon.tweenengine.TweenManager;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.minutegamez.screens.profile.newuserpopup.NewUserStage;
+import com.minutegamez.framework.PopupStage;
+import com.minutegamez.guiassets.BackgroundAssets;
+import com.minutegamez.guiassets.ProfileAssets;
 import com.minutegamez.utils.Constants;
 
-public class ProfileStage extends Stage {
+public class ProfileStage extends PopupStage {
+
+	public static final int RESPONSE_PROFILE_SELECTED = 101;
+
+	public static final int POPUP_NEW_PROFILE = 102;
 
 	private static final float BUTTON_COUNT_X = 3;
 	private static final int MAX_VISIBLE_BUTTON = 6;
 
-	private Actor background;
-	private Array<ProfileButton> profileButton;
+	private PopupStage newProfileStage;
 
-	private NewUserStage newUserStage;
+	private Image background;
+	private Array<ProfileButton> profileButtons;
+	private Skin skin;
+	private Array<Profile> profiles;
+
 	private ProfileButtonListener profileButtonListener;
 
-	public ProfileStage(StretchViewport stretchViewport, SpriteBatch batch) {
-		super(stretchViewport, batch);
+	public ProfileStage(SpriteBatch batch, TweenManager guiTweenManager) {
+		super(batch, guiTweenManager);
+		this.profiles = GameService.instance.getProfiles();
+		skin = ProfileAssets.instance.profileSkin;
 
 		profileButtonListener = new ProfileButtonListener();
-		initStages();
+		newProfileStage = new NewProfileStage(batch, guiTweenManager);
+
 		initActors();
 		addActors();
 		setPosition();
-
+		setDebugAll(true);
 	}
 
-	private void initStages() {
-		newUserStage = new NewUserStage();
+	@Override
+	public void update(float delta) {
+		if (popup != null) {
+			if (popup.equals(newProfileStage)) {
+				switch (newProfileStage.getResponse()) {
+				case NewProfileStage.RESPONSE_PROFILE_CREATED:
+					popup = null;
+					init();
+					break;
+				}
+			}
+		}
 	}
 
 	private void addActors() {
 		addActor(background);
 
-		for (Actor actor : profileButton) {
+		for (Actor actor : profileButtons) {
 			addActor(actor);
 		}
 
-		addActor(newUserStage);
+		// addActor(newUserStage);
 	}
 
 	private void setPosition() {
@@ -57,8 +75,8 @@ public class ProfileStage extends Stage {
 		// float offsetWidth = Constants.GUI_WIDTH / BUTTON_COUNT_X;
 		// float posX = (offsetWidth / 2) - profileButton.get(0).getWidth() / 2;
 
-		float btnWidth = profileButton.get(0).getWidth();
-		float btnHeight = profileButton.get(0).getHeight();
+		float btnWidth = profileButtons.get(0).getWidth();
+		float btnHeight = profileButtons.get(0).getHeight();
 
 		float centerX = Constants.GUI_WIDTH / 2;
 		float centerY = Constants.GUI_HEIGHT / 2;
@@ -70,7 +88,7 @@ public class ProfileStage extends Stage {
 		float posY = centerY + gapY;
 
 		for (int j = 0; j < MAX_VISIBLE_BUTTON; j++) {
-			Actor actor = profileButton.get(j);
+			Actor actor = profileButtons.get(j);
 
 			actor.setPosition(posX, posY);
 			posX += gapX + btnWidth;
@@ -83,22 +101,44 @@ public class ProfileStage extends Stage {
 		}
 	}
 
-	public void startAnimation() {
-		for (Actor actor : profileButton) {
-			actor.addAction(parallel(scaleTo(1, 1, .3f, bounceOut)));
+	private void initActors() {
+		background = new Image(BackgroundAssets.instance.grass_background);
+		background.setSize(Constants.GUI_WIDTH, Constants.GUI_HEIGHT);
+
+		int profileCount = Constants.MAX_PROFILE;
+		profileButtons = new Array<ProfileButton>();
+		for (int j = 0; j < profileCount; j++) {
+			Profile profile = null;
+			ProfileButton actor = null;
+			if (profiles.size > j) {
+				profile = profiles.get(j);
+				actor = new ProfileButton(skin);
+				actor.init(profile);
+			} else {
+				// if empty profile
+				actor = new ProfileButton(skin);
+			}
+			actor.addListener(profileButtonListener);
+			profileButtons.add(actor);
 		}
 	}
 
-	private void initActors() {
-		background = new Background();
+	private void init() {
+		Array<Profile> profiles = GameService.instance.getProfiles();
+		for (int j = 0; j < profiles.size; j++) {
+			Profile profile = profiles.get(j);
+			ProfileButton button = profileButtons.get(j);
+			button.init(profile);
+		}
+	}
 
-		int profileCount = 6;
-		profileButton = new Array<ProfileButton>();
-		for (int j = 0; j < profileCount; j++) {
-			Profile profile = new Profile("Jaime", Gender.MALE);
-			ProfileButton actor = new ProfileButton();
-			actor.addListener(profileButtonListener);
-			profileButton.add(actor);
+	@Override
+	public void setResponse(int response) {
+		super.setResponse(response);
+		switch (getResponse()) {
+		case RESPONSE_PROFILE_SELECTED:
+			System.out.println("Profile Selected");
+			break;
 		}
 	}
 
@@ -107,9 +147,21 @@ public class ProfileStage extends Stage {
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
 			super.clicked(event, x, y);
-			newUserStage.show();
+			if (getState() == STATE_ANIMATION_FINISHED) {
+				for (ProfileButton button : profileButtons) {
+					if (button.isClicked(event.getTarget())) {
+						if (button.getProfile() != null) {
+							GameService.instance.setSelectedProfile(button
+									.getProfile());
+							setResponse(RESPONSE_PROFILE_SELECTED);
+						} else {
+							setPopup(newProfileStage);
+						}
+						break;
+					}
+				}
+			}
 		}
-
 	}
 
 }

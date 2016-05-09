@@ -1,0 +1,8 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+		cancel: { down: btn-cancel-down, up: btn-cancel-up }
+		save: { down: btn-save-down, up: btn-save-up }
+		male: { down: btn-male-down, checked: btn-male-down, up: btn-male-up }
+		female: { down: btn-female-down, checked: btn-female-down, up: btn-female-up }
+	}
+}

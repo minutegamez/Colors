@@ -2,6 +2,7 @@ package com.minutegamez.screens.menu.statpopup;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.utils.Array;
 import com.minutegamez.framework.PopupAssets;
 import com.minutegamez.guiassets.ProfileAssets;

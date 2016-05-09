@@ -1,14 +1,14 @@
 package com.minutegamez.screens.splash.title;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.minutegamez.framework.ImageGameObject;
 import com.minutegamez.guiassets.SplashAssets;
-import com.minutegamez.test.ImageGameObject;
 import com.minutegamez.utils.Constants;
 
 public class ColorsLabel extends ImageGameObject {
 	public ColorsLabel() {
-		setRegion(SplashAssets.colorsLabel);
-		setDimension(getRegion().getRegionWidth(), getRegion()
-				.getRegionHeight());
+		TextureRegion region = SplashAssets.colorsLabel;
+		setRegion(region, region.getRegionWidth(), region.getRegionHeight());
 		setPosition(Constants.GUI_WIDTH + getWidth(), 300);
 	}
 }
