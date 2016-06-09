@@ -24,9 +24,10 @@ import com.minutegamez.utils.Constants;
 
 public class LevelEndStage extends PopupStage {
 
-	public static final int RESPONSE_RETRY = 100;
+	public static final int RESPONSE_REPLAY = 100;
 	public static final int RESPONSE_BACK_TO_MENU = 101;
 	public static final int RESPONSE_NEXT = 102;
+	public static final int RESPONSE_BACK_TO_LEVEL_SELECTION = 103;
 
 	private static final int MAX_STARS = 3;
 	private static final int MAX_RATING = 3;
@@ -58,7 +59,9 @@ public class LevelEndStage extends PopupStage {
 	}
 
 	private void addListeners() {
-		// btnResume.addListener(listener);
+		 btnMenu.addListener(listener);
+		 btnNext.addListener(listener);
+		 btnReplay.addListener(listener);
 	}
 
 	private void initGameObjects() {
@@ -123,9 +126,18 @@ public class LevelEndStage extends PopupStage {
 
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
+			System.out.println("click");
 			if (getState() == STATE_ANIMATION_FINISHED) {
-				// if (event.getTarget().equals(btnResume)) {
-				// }
+				if (event.getTarget().equals(btnMenu)) {
+					System.out.println("back to menu");
+					setResponse(RESPONSE_BACK_TO_MENU);
+				} else if (event.getTarget().equals(btnNext)) {
+					System.out.println("bnext");
+					setResponse(RESPONSE_NEXT);
+				} else if (event.getTarget().equals(btnReplay)) {
+					System.out.println("bac replay");
+					setResponse(RESPONSE_REPLAY);
+				}
 			}
 			super.clicked(event, x, y);
 		}

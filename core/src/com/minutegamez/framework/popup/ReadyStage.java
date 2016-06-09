@@ -62,6 +62,7 @@ public class ReadyStage extends PopupStage {
 	}
 
 	public void startAnimation() {
+		
 		imgReady.scaleBy(1.5f, 1.5f);
 		imgGo.scaleBy(1.5f, 1.5f);
 		Color color = imgGo.getColor();
@@ -102,6 +103,7 @@ public class ReadyStage extends PopupStage {
 		@Override
 		public void onEvent(int arg0, BaseTween<?> arg1) {
 			setResponse(RESPONSE_ANIMATION_FINISHED);
+			System.out.println("animation finesh");
 		}
 
 	}

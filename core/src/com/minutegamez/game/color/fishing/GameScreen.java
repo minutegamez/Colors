@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.minutegamez.framework.AbstractGameScreen;
 import com.minutegamez.framework.DirectedGame;
-import com.minutegamez.framework.PopupStage;
 import com.minutegamez.framework.popup.InstructionService;
 import com.minutegamez.framework.popup.LevelEndStage;
 import com.minutegamez.framework.popup.LevelStage;
@@ -31,13 +30,13 @@ public class GameScreen extends AbstractGameScreen {
 
 		loadingScreen = new LoadingStage(batch, guiTweenManager,
 				ColorFishingAsset.instance);
-		pauseScreen = new PauseStage(batch, guiTweenManager);
+		levelEndScreen = new LevelEndStage(batch, guiTweenManager);
 		runningScreen = new RunningStage(batch, guiTweenManager);
 		readyScreen = new ReadyStage(batch, guiTweenManager);
 		levelScreen = new LevelStage(batch, guiTweenManager, gameIndex);
 		tutorialScreen = new TutorialStage(batch, guiTweenManager,
 				new InstructionService());
-		levelEndScreen = new LevelEndStage(batch, guiTweenManager);
+		pauseScreen = new PauseStage(batch, guiTweenManager);
 	}
 
 	private void init() {
@@ -89,8 +88,8 @@ public class GameScreen extends AbstractGameScreen {
 			else if (currScreen.equals(levelEndScreen)) {
 				checkLevelEndStageResponse();
 			}
-			
-			//loading
+
+			// loading
 			else if (currScreen.equals(loadingScreen)) {
 				checkLoadingResponse();
 			}
@@ -98,7 +97,21 @@ public class GameScreen extends AbstractGameScreen {
 	}
 
 	private void checkLevelEndStageResponse() {
-
+		switch (levelEndScreen.getResponse()) {
+		case LevelEndStage.RESPONSE_BACK_TO_MENU:
+			System.out.println("back to menu");
+			break;
+		case LevelEndStage.RESPONSE_NEXT:
+			System.out.println("next");
+			break;
+		case LevelEndStage.RESPONSE_REPLAY:
+			setPopup(readyScreen);
+//			worldController.init(levelService.getCurrLevel());
+			break;
+		case LevelEndStage.RESPONSE_BACK_TO_LEVEL_SELECTION:
+			System.out.println("back to level selectin");
+			break;
+		}
 	}
 
 	private void checkLoadingResponse() {
@@ -175,7 +188,9 @@ public class GameScreen extends AbstractGameScreen {
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);
-		pauseScreen.getViewport().update(width, height);
+		if (currScreen != null) {
+			currScreen.getViewport().update(width, height);
+		}
 	}
 
 	@Override

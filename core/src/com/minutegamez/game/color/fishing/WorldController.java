@@ -81,10 +81,10 @@ public class WorldController extends AbstractWorldController {
 
 		groupObject.add(background);
 		groupObject.add(clouds);
-		groupObject.add(frontCorals);
 		groupObject.add(tank);
 		groupObject.add(bubbles);
 		groupObject.add(upperSeaObjects);
+		groupObject.add(frontCorals);
 		// groupObject.add(displayFishes);
 	}
 
@@ -93,12 +93,13 @@ public class WorldController extends AbstractWorldController {
 		checkFishCollission(touchPoint);
 	}
 
-	private void startCorrectAnimation(Fish fish) {
+	private void startCorrectAnimation(Fish fish, Monkey monkey) {
 		tank.remove(fish);
 		soundManager.playClickSound();
 		// startCorrectAnimation(fish);
 		// if all target fishes are tapped
 		if (tank.isTargetFishEmpty()) {
+			monkey.setToHappy();
 			scoreManager.addScore(true);
 			soundManager.playCorrectSound();
 		}
@@ -110,6 +111,8 @@ public class WorldController extends AbstractWorldController {
 	}
 
 	private void checkFishCollission(Vector3 touchPoint) {
+		Monkey monkey = upperSeaObjects.getBoat().getMonkey();
+		
 		if (tank.state == Tank.STATE_NORMAL) {
 			for (int j = tank.fishesOnScreen.size - 1; j > -1; j--) {
 				Fish fish = tank.fishesOnScreen.get(j);
@@ -117,9 +120,10 @@ public class WorldController extends AbstractWorldController {
 						&& fish.getState() == Fish.STATE_SWIMMING) {
 					// if correct fish is tapped
 					if (tank.ifFishIsATarget(fish)) {
-						startCorrectAnimation(fish);
-						// if incorrect fish is tapped
+						startCorrectAnimation(fish, monkey);
 					} else {
+						// if incorrect fish is tappeds
+						monkey.setToAngry();
 						scoreManager.addScore(false);
 						scoreManager.setError(tank.getTargetColor());
 						soundManager.playIncorrectSound(fish.colorIndex);

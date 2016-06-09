@@ -27,15 +27,22 @@ public class Boat extends ImageGameObject {
 						.target(getY() + .2f).repeatYoyo(20, 0))
 				.push(Tween.to(this, ActorAccessor.POS_X, 3)
 						.target(getX() + .2f).repeatYoyo(20, 0))
-				.push(Tween.to(this, ActorAccessor.ROTATION, 3)
-						.target(-5).repeatYoyo(20, 0))
-				.start(tweenManager);
+				.push(Tween.to(this, ActorAccessor.ROTATION, 3).target(-5)
+						.repeatYoyo(20, 0)).start(tweenManager);
+	}
+
+	public Monkey getMonkey() {
+		return monkey;
+	}
+
+	public void setMonkey(Monkey monkey) {
+		this.monkey = monkey;
 	}
 
 	@Override
 	public void update(float deltaTime) {
 		monkey.setY(getY() + .6f);
-		monkey.setX(getX()-.6f);
+		monkey.setX(getX() - .6f);
 		monkey.setRotation(getRotation());
 		monkey.update(deltaTime);
 		flowers.update(deltaTime);
@@ -49,7 +56,7 @@ public class Boat extends ImageGameObject {
 				region.getRegionY(), region.getRegionWidth(),
 				region.getRegionHeight(), false, false);
 		monkey.draw(batch, parentAlpha);
-		flowers.draw(batch, parentAlpha);
+//		flowers.draw(batch, parentAlpha);
 	}
 
 	public void init(int targetFish) {

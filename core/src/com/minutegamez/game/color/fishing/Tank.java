@@ -49,6 +49,7 @@ public class Tank extends ImageGameObject {
 		for (int j = 0; j < MAX_FISH; j++) {
 			ParticleEffect effect = effects.get(j);  
 			Fish fish = new Fish(effect, tweenManager);
+			fish.setPosition(-5f, -5f);
 			fishPool.add(fish);
 		}
 	}

@@ -40,7 +40,6 @@ public class Fish extends ImageGameObject {
 	private int state;
 
 	public Fish() {
-
 	}
 
 	class FishAnimationObserver implements Observer {
@@ -83,6 +82,7 @@ public class Fish extends ImageGameObject {
 
 	@Override
 	public void update(float deltaTime) {
+		
 		if (state == STATE_SWIMMING) {
 			stateTime += deltaTime;
 
@@ -175,7 +175,6 @@ public class Fish extends ImageGameObject {
 					region.getRegionY(), region.getRegionWidth(),
 					region.getRegionHeight(), false, false);
 		}
-//		if (state == STATE_ON_CORRECT_ANIM)
 			onCaughtAnim.draw(batch, parentAlpha);
 	}
 

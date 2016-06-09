@@ -75,9 +75,10 @@ public class PauseStage extends PopupStage {
 
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
-			if (getState() == STATE_ANIMATION_FINISHED) {
+			System.out.println("click");			if (getState() == STATE_ANIMATION_FINISHED) {
 				if (event.getTarget().equals(btnResume)) {
 					setResponse(RESPONSE_RESUME);
+					System.out.println("reume");
 				} else if (event.getTarget().equals(btnQuit)) {
 					setResponse(RESPONSE_QUIT);
 				} else if (event.getTarget().equals(btnHelp)) {
