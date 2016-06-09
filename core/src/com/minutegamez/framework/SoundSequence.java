@@ -148,10 +148,8 @@ public class SoundSequence implements Sound {
 				if (index < sounds.size) {
 					play();
 					stateTime = 0;
-					System.out.println("playin");
 				} else {
 					stop();
-					System.out.println("stopped");
 				}
 			}
 		}

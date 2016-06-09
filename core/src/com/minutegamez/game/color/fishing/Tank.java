@@ -60,8 +60,7 @@ public class Tank extends ImageGameObject {
 		targetFishesCount = level.getTargetFish();
 		targetFishColorID = colorsQueue.getTargetColor();
 		float x = Constants.VIEWPORT_WIDTH;
-		float y = Constants.VIEWPORT_HEIGHT - fishPool.get(0).getHeight()
-				* 1.5f;
+		float y = 5f;
 		for (int j = 0; j < size; j++) {
 
 			int index = targetFishColorID;
@@ -99,8 +98,7 @@ public class Tank extends ImageGameObject {
 			
 			// if a fish will not make it send to the next column position
 			if (y <= 0) {
-				y = Constants.VIEWPORT_HEIGHT - fish.getHeight()
-						* MathUtils.random(1, 2);
+				y = 5f;
 				x += fish.getWidth() * 1.5f;
 			}
 			
@@ -151,7 +149,7 @@ public class Tank extends ImageGameObject {
 			boolean allFishExited = true;
 			for (Fish fish : fishesOnScreen) {
 				fish.update(deltaTime);
-				if (fish.getState() != Fish.STATE_NOT_VISIBLE) {
+				if (fish.getState() != Fish.STATE_EXITED) {
 					allFishExited = false;
 				}
 			}
@@ -160,11 +158,14 @@ public class Tank extends ImageGameObject {
 			if (state == STATE_NORMAL) {
 				if (isTargetFishEmpty()) {
 					makeFishesExit();
+					setState(STATE_ON_EXIT);
+					System.out.println("on exit");
 				}
 			}
 
 			// CHECK IF ALL FISH ARE OUT OF THE SCREEN
 			if (allFishExited) {
+				System.out.println("all fish exited");
 				setState(STATE_EMPTY);
 			}
 		}
@@ -174,7 +175,6 @@ public class Tank extends ImageGameObject {
 		for (Fish fish : fishesOnScreen) {
 			fish.speed = 6f;
 		}
-
 	}
 
 	@Override
@@ -199,5 +199,6 @@ public class Tank extends ImageGameObject {
 	public void remove(Fish fish) {
 		fish.setState(Fish.STATE_ON_CORRECT_ANIM);
 		targetFishesCount--;
+		System.out.println("targetfish count " + targetFishesCount);
 	}
 }

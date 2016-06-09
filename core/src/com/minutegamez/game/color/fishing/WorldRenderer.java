@@ -18,8 +18,6 @@ public class WorldRenderer extends AbstractWorldRenderer{
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		controller.getObjectGroup().draw(batch, 1f);
-		controller.bubbleTest.draw(batch);
-		controller.bubbleTest2.draw(batch);
 		batch.end();
 //		System.out.println("drawing");
 	}

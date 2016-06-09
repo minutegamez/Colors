@@ -22,12 +22,10 @@ public class Fish extends ImageGameObject {
 
 	public static final int STATE_SWIMMING = 1;
 	public static final int STATE_STOPPED = 2;
-	public static final int STATE_NOT_VISIBLE = 3;
 	public static final int STATE_ON_CORRECT_ANIM = 4;
 
-	public static final int STATE_NORMAL = 1;
-	public static final int STATE_ON_EXIT = 2;
-	public static final int STATE_EXITED = 3;
+	public static final int STATE_ON_EXIT = 5;
+	public static final int STATE_EXITED = 6;
 
 	public static final int TYPE_BIG = 1;
 	public static final int TYPE_SMALL = 2;
@@ -66,7 +64,7 @@ public class Fish extends ImageGameObject {
 		onCaughtAnim = new MovingStarsEffect(tweenManager);
 
 		setAnimation(fishAnimation1.get(0));
-		state = STATE_NOT_VISIBLE;
+		setState(STATE_EXITED);
 		effectBubble.start();
 	}
 
@@ -80,6 +78,7 @@ public class Fish extends ImageGameObject {
 				/ 2);
 		onCaughtAnim.setDestination(destX, destY);
 		setState(STATE_ON_CORRECT_ANIM);
+		onCaughtAnim.start(getObserver());
 	}
 
 	@Override
@@ -91,7 +90,7 @@ public class Fish extends ImageGameObject {
 			setPosition(x, getY());
 
 			if (x < -getWidth()) {
-				state = STATE_NOT_VISIBLE;
+				state = STATE_EXITED;
 				// effectBubble.();
 			}
 
@@ -137,12 +136,11 @@ public class Fish extends ImageGameObject {
 	public void setState(int state) {
 		this.state = state;
 		switch (state) {
-		case STATE_NORMAL:
+		case STATE_SWIMMING:
 			setVisible(true);
 			break;
 		case STATE_ON_CORRECT_ANIM:
 			setVisible(false);
-			onCaughtAnim.start(getObserver());
 			break;
 		}
 	}
@@ -159,7 +157,7 @@ public class Fish extends ImageGameObject {
 		effectBubble.start();
 		// reset getRotation()
 		setRotation(0);
-		setState(STATE_NORMAL);
+		setState(STATE_SWIMMING);
 	}
 
 	public TextureRegion getRegion() {

@@ -42,6 +42,7 @@ public class MovingStarsEffect extends ImageGameObject {
 			public void onEvent(int arg0, BaseTween<?> arg1) {
 				isFinished = true;
 				observer.update();
+				System.out.println("End: " + fish.getY());
 			}
 		};
 
@@ -76,9 +77,9 @@ public class MovingStarsEffect extends ImageGameObject {
 
 	public void start(Observer observer) {
 		this.observer = observer;
-		if (timeline != null) {
-			timeline.kill();
-		}
+//		if (timeline != null) {
+//			timeline.kill();
+//		}
 		bubble.setRotation(0);
 		fish.setRotation(0);
 		star.setScale(1, 1);
@@ -100,6 +101,7 @@ public class MovingStarsEffect extends ImageGameObject {
 								360))).setCallback(callback)
 				.start(tweenManager);
 		isFinished = false;
+		System.out.println("start");
 		burstBubbleParticle.start();
 	}
 
@@ -127,7 +129,7 @@ public class MovingStarsEffect extends ImageGameObject {
 		if (!isFinished) {
 			fish.draw(batch, parentAlpha);
 			bubble.draw(batch, parentAlpha);
-			burstBubbleParticle.draw(batch, parentAlpha);
+			burstBubbleParticle.draw(batch);
 		}
 	}
 

@@ -112,7 +112,6 @@ public class LevelEndStage extends PopupStage {
 		tblStar.clearChildren();
 		
 
-		System.out.println("num of stars" +  numOfStars);
 		for (int j = 0; j < numOfStars; j++) {
 			tblStar.add(imgStars.get(j));
 		}

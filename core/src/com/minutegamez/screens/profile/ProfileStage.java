@@ -137,7 +137,6 @@ public class ProfileStage extends PopupStage {
 		super.setResponse(response);
 		switch (getResponse()) {
 		case RESPONSE_PROFILE_SELECTED:
-			System.out.println("Profile Selected");
 			break;
 		}
 	}

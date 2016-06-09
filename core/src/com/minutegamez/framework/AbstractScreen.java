@@ -15,12 +15,10 @@ public abstract class AbstractScreen extends InputAdapter implements Screen {
 
 	public void pause() {
 		state = STATE_PAUSED;
-		System.out.println("paused");
 	}
 
 	public void resume() {
 		state = STATE_RUNNING;
-		System.out.println("runnin");
 	}
 
 	protected void setState(int state) {
@@ -34,7 +32,6 @@ public abstract class AbstractScreen extends InputAdapter implements Screen {
 	public void setPopup(PopupStage stage) {
 		currScreen = stage;
 		currScreen.show();
-		System.out.println("s");
 	}
 
 	protected DirectedGame game;

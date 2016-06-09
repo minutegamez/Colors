@@ -10,6 +10,14 @@ import com.minutegamez.framework.ImageGameObject;
 
 public class Monkey extends ImageGameObject {
 
+	public static final int STATE_IDLE = 0;
+	public static final int STATE_ANGRY = 1;
+	public static final int STATE_HAPPY = 2;
+	
+	private Animation animationAngry;
+	private Animation animationHappy;
+	private Animation animationIdle;
+	
 	public float speed;
 
 	private Animation currAnimation;
@@ -19,9 +27,17 @@ public class Monkey extends ImageGameObject {
 	public int state;
 
 	public Monkey() {
-		Array<AtlasRegion> regions = ColorFishingAsset.instance.gameAsset.monkey;
-		currAnimation = new Animation(1.0f /6.0f, regions);
-		TextureRegion region = regions.get(0);
+		Array<AtlasRegion> idleMonkeyRegions = ColorFishingAsset.instance.gameAsset.monkey;
+		Array<AtlasRegion> angryMonkeyRegions = ColorFishingAsset.instance.gameAsset.monkeyAngry;
+		Array<AtlasRegion> happyMonkeyRegions = ColorFishingAsset.instance.gameAsset.monkeyHappy;
+		
+		animationIdle = new Animation(1.0f / 6.0f, idleMonkeyRegions);
+		animationAngry = new Animation(1.0f / 6.0f, angryMonkeyRegions);
+		animationHappy = new Animation(1.0f / 6.0f, happyMonkeyRegions);
+		
+		currAnimation = animationIdle;
+		
+		TextureRegion region = idleMonkeyRegions.get(0);
 		setRegion(region);
 		setPosition(0, 0);
 	}
@@ -29,6 +45,27 @@ public class Monkey extends ImageGameObject {
 	@Override
 	public void update(float deltaTime) {
 		stateTime += deltaTime;
+		
+		switch(state){
+		case STATE_HAPPY:
+			
+			break;
+		case STATE_ANGRY:
+			
+			break;
+		}
+	}
+	
+	public void setToHappy(){
+		state = STATE_HAPPY;
+		currAnimation = animationHappy;
+		stateTime = 0;
+	}
+	
+	public void setToAngry(){
+		state = STATE_ANGRY;
+		currAnimation = animationAngry;
+		stateTime = 0;
 	}
 
 	public TextureRegion getRegion() {
