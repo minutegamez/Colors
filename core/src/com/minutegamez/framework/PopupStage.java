@@ -55,6 +55,7 @@ public abstract class PopupStage extends Stage {
 	}
 
 	public void show() {
+		System.out.println("show");
 		setResponse(RESPONSE_NONE);
 		setState(STATE_ON_ENTRANCE_ANIMATION);
 		showEntranceAnimation();
@@ -123,21 +124,27 @@ public abstract class PopupStage extends Stage {
 		popup.show();
 	}
 
+	public void updatePopupState(){
+		switch (getState()) {
+		case STATE_ON_ENTRANCE_ANIMATION:
+			setLastInputProcessor(Gdx.input.getInputProcessor());
+			setAsInputProcessor();
+			setState(STATE_ANIMATION_FINISHED);
+			break;
+		case STATE_ON_EXIT_ANIMATION:
+			setState(STATE_ANIMATION_FINISHED);
+			Gdx.input.setInputProcessor(getLastInputProcessor());
+			System.out.println("last inpt proc");
+			break;
+		}
+	}
+	
+	
 	class AnimationCallback implements TweenCallback {
 
 		@Override
 		public void onEvent(int arg0, BaseTween<?> arg1) {
-			switch (getState()) {
-			case STATE_ON_ENTRANCE_ANIMATION:
-				setLastInputProcessor(Gdx.input.getInputProcessor());
-				setAsInputProcessor();
-				setState(STATE_ANIMATION_FINISHED);
-				break;
-			case STATE_ON_EXIT_ANIMATION:
-				setState(STATE_ANIMATION_FINISHED);
-				Gdx.input.setInputProcessor(getLastInputProcessor());
-				break;
-			}
+			updatePopupState();
 		}
 	}
 

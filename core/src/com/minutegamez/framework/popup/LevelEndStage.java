@@ -18,8 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.minutegamez.framework.ActorAccessor;
 import com.minutegamez.framework.PopupStage;
-import com.minutegamez.screens.profile.GameService;
-import com.minutegamez.screens.profile.LevelRating;
 import com.minutegamez.utils.Constants;
 
 public class LevelEndStage extends PopupStage {

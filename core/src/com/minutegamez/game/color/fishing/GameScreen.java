@@ -2,6 +2,7 @@ package com.minutegamez.game.color.fishing;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.utils.Logger;
 import com.minutegamez.framework.AbstractGameScreen;
 import com.minutegamez.framework.DirectedGame;
 import com.minutegamez.framework.popup.InstructionService;
@@ -30,8 +31,8 @@ public class GameScreen extends AbstractGameScreen {
 
 		loadingScreen = new LoadingStage(batch, guiTweenManager,
 				ColorFishingAsset.instance);
-		levelEndScreen = new LevelEndStage(batch, guiTweenManager);
 		runningScreen = new RunningStage(batch, guiTweenManager);
+		levelEndScreen = new LevelEndStage(batch, guiTweenManager);
 		readyScreen = new ReadyStage(batch, guiTweenManager);
 		levelScreen = new LevelStage(batch, guiTweenManager, gameIndex);
 		tutorialScreen = new TutorialStage(batch, guiTweenManager,
@@ -40,9 +41,9 @@ public class GameScreen extends AbstractGameScreen {
 	}
 
 	private void init() {
+		loaded = true;
 		worldController = new WorldController(tweenManager);
 		worldRenderer = new WorldRenderer(batch, worldController);
-		loaded = true;
 		inputMultiplexer.addProcessor(runningScreen);
 		inputMultiplexer.addProcessor(worldController);
 	}
@@ -99,17 +100,14 @@ public class GameScreen extends AbstractGameScreen {
 	private void checkLevelEndStageResponse() {
 		switch (levelEndScreen.getResponse()) {
 		case LevelEndStage.RESPONSE_BACK_TO_MENU:
-			System.out.println("back to menu");
 			break;
 		case LevelEndStage.RESPONSE_NEXT:
-			System.out.println("next");
 			break;
 		case LevelEndStage.RESPONSE_REPLAY:
 			setPopup(readyScreen);
-//			worldController.init(levelService.getCurrLevel());
+			worldController.init(levelService.getCurrLevel());
 			break;
 		case LevelEndStage.RESPONSE_BACK_TO_LEVEL_SELECTION:
-			System.out.println("back to level selectin");
 			break;
 		}
 	}
@@ -167,7 +165,6 @@ public class GameScreen extends AbstractGameScreen {
 		case WorldController.STATE_LEVEL_END:
 			int numOfStars = worldController.scoreManager.getNumOfStars();
 			worldController.scoreManager.save();
-
 			LevelEndStage stage = (LevelEndStage) levelEndScreen;
 			stage.init(numOfStars);
 
@@ -179,8 +176,8 @@ public class GameScreen extends AbstractGameScreen {
 	private void checkReadyStageResponse() {
 		switch (readyScreen.getResponse()) {
 		case ReadyStage.RESPONSE_ANIMATION_FINISHED:
-			setPopup(runningScreen);
 			worldController.resume();
+			setPopup(runningScreen);
 			break;
 		}
 	}

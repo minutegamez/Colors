@@ -43,7 +43,10 @@ public class ReadyStage extends PopupStage {
 	}
 
 	private void addListeners() {
+		
 	}
+	
+
 
 	private void initGameObjects() {
 		imgReady = new CustomImage(skin.getRegion("lbl-ready"));
@@ -61,8 +64,8 @@ public class ReadyStage extends PopupStage {
 	private void setSizes() {
 	}
 
-	public void startAnimation() {
-		
+	@Override
+	public void showEntranceAnimation() {
 		imgReady.scaleBy(1.5f, 1.5f);
 		imgGo.scaleBy(1.5f, 1.5f);
 		Color color = imgGo.getColor();
@@ -80,10 +83,6 @@ public class ReadyStage extends PopupStage {
 
 	}
 
-	@Override
-	public void show() {
-		startAnimation();
-	}
 
 //	@Override
 //	public void hide() {
@@ -102,19 +101,12 @@ public class ReadyStage extends PopupStage {
 
 		@Override
 		public void onEvent(int arg0, BaseTween<?> arg1) {
+			System.out.println("anim finisnhed");
 			setResponse(RESPONSE_ANIMATION_FINISHED);
-			System.out.println("animation finesh");
+//			hide();
+			setState(STATE_ON_EXIT_ANIMATION);
+			updatePopupState();
 		}
-
-	}
-
-	@Override
-	public void showEntranceAnimation() {
-
-	}
-
-	@Override
-	public void showExitAnimation() {
 
 	}
 }
